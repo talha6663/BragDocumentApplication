@@ -179,3 +179,6 @@ nav .menu {
 main {
 	padding: 10px 20px;
 }
+a:link, a:visited, a:active, a:focus {
+	color: cyan;
+}

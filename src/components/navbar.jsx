@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 const Navbar = () => {
 	return (
@@ -7,9 +8,9 @@ const Navbar = () => {
                 BRAGBOX
             </div>
             <div className="menu">
-                <div>Home</div>
-                <div>Add</div>
-                <div>My Profile</div>
+                <div><Link to="/">Home</Link></div>
+                <div><Link to="/add">Add New</Link></div>
+                <div><Link to="/profile">My Profile</Link></div>
                 <div>Logout</div>
             </div>
         </nav>
