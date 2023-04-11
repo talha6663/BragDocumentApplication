@@ -155,7 +155,7 @@ html, body {
 	background: #f4f4f4;
 	color: #555;
 }
-.App {
+.mainWrapper {
 	display: flex;
 	width: 100vw;
 	height: 100vh;

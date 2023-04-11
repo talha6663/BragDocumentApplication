@@ -3,7 +3,7 @@ import Navbar from './components/navbar';
 
 const Add = () => {
 	return (
-		<div className="App">
+		<div className="mainWrapper">
 			<Navbar />
 			<main>
 				<AddForm />
