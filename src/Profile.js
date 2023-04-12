@@ -1,7 +1,10 @@
+import Navbar from './components/navbar';
+
 const Profile = () => {
 	return (
-		<div>
-			<h1>Hello from Profile</h1>
+		<div className="mainWrapper">
+			<Navbar />
+			<main>Hello from Profile</main>
 		</div>
 	);
 };
