@@ -1,3 +1,8 @@
+# React Express Boilerplate
+
+This is just a simple boilerplate when using react with express.\
+Below is the default react readme
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
