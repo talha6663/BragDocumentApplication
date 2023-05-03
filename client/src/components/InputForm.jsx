@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-const InputForm = () => {
+const InputForm = (props) => {
 
     const [title, setTitle] = useState('');
     const [brag, setBrag] = useState('');
@@ -15,7 +15,8 @@ const InputForm = () => {
 				body: JSON.stringify(body),
 			});
 
-			window.location = '/';
+			// window.location = '/';
+            props.toggleRefreshList();
 		} catch (err) {
 			console.error(err.message);
 		}

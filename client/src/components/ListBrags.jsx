@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 
-const ListBrags = () => {
+const ListBrags = (props) => {
 
     const [brags, setBrags] = useState([]);
 
@@ -17,7 +17,7 @@ const ListBrags = () => {
 
     useEffect(() => {
 		getBrags();
-	}, []);
+	}, [props.refreshList]);
 
     return (
         <div>
