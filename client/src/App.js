@@ -1,10 +1,17 @@
 import './App.css';
+import InputForm from './components/InputForm';
+import ListBrags from './components/ListBrags';
+import Navbar from './components/Navbar';
 
 function App() {
 	return (
-		<div className="App">
-			<h1>Hello boilerplate!</h1>
-		</div>
+		<>
+			<Navbar />
+			<div className="App">
+				<InputForm />
+				<ListBrags />
+			</div>
+		</>
 	);
 }
 
