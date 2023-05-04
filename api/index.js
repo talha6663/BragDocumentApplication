@@ -10,7 +10,6 @@ const pool = require('./db');
 app.use(cors());
 app.use(express.json());
 
-// Routes
 /**
  * ROUTES
  */
