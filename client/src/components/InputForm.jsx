@@ -23,15 +23,17 @@ const InputForm = (props) => {
 	};
 
     return (
-        <form className="input_form" onSubmit={onSubmitForm}>
-            <label for="title">Title</label>
-            <input type="text" id="title" className="form_element" value={title} onChange={(e) => setTitle(e.target.value)} />
+		<div className="panel_left">
+			<form className="input_form" onSubmit={onSubmitForm}>
+				<label for="title">Title</label>
+				<input type="text" id="title" className="form_element" value={title} onChange={(e) => setTitle(e.target.value)} />
 
-            <label for="brag">Brag Details</label>
-            <textarea id="brag" col="6" rows="14" className="form_element" onChange={(e) => setBrag(e.target.value)} value={brag}></textarea>
+				<label for="brag">Brag Details</label>
+				<textarea id="brag" col="6" rows="14" className="form_element" onChange={(e) => setBrag(e.target.value)} value={brag}></textarea>
 
-            <button class="btn">Submit</button>
-        </form>
+				<button class="btn">Submit</button>
+			</form>
+		</div>
     );
 };
 

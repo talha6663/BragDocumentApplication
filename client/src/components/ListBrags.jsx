@@ -20,7 +20,7 @@ const ListBrags = (props) => {
 	}, [props.refreshList]);
 
     return (
-        <div>
+        <div className="panel_right">
             {brags.map((item) => (
                 <div key={item.brag_id}>
                     <div>Title: {item.title}</div>

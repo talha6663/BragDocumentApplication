@@ -14,7 +14,18 @@ body {
 
 .App {
   display: flex;
+  justify-content: stretch;
   margin: 20px;
+}
+
+.panel_left {
+  width: 30%;
+  padding-right: 8px;
+}
+.panel_right {
+  /* background: #585858; */
+  width: 70%;
+  padding-left: 8px;
 }
 
 /* Navbar */
@@ -36,7 +47,7 @@ nav .logo {
 .input_form {
   display: flex;
   flex-direction: column;
-  width: 500px;
+  /* width: 25%; */
 }
 .form_element {
   background: #212121;
