@@ -19,7 +19,8 @@ app.post('/brags', async (req, res) => {
 	try {
 		// const user_id = req.body.user_id;
 		const user_id = 815138;
-		const title = req.body.title;
+		// const title = req.body.title;
+		const title = 'Default title';
 		const brag = req.body.brag;
 		const tags = ['php', 'react'];
 		const newBrag = await pool.query('INSERT INTO brags (user_id, title, brag, tags) VALUES ($1, $2, $3, $4) RETURNING *', [user_id, title, brag, tags]);
