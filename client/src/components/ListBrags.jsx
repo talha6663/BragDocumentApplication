@@ -22,13 +22,15 @@ const ListBrags = (props) => {
     return (
         <div className="panel_right">
 
-            <ul>
-                {brags.map((item) => (
-                    <span key={item.brag_id}>
-                        <li>{item.brag}</li>
-                    </span>
-                ))}
-            </ul>
+            {brags.map((item) => (
+                <div key={item.brag_id} className="brag_card">
+                    {item.brag}
+                    <div className="brag_card_info">
+                        <span>TAGS: {item.tags}</span>
+                        <span>CREATED: {item.created_at}</span>    
+                    </div>
+                </div>
+            ))}
 
         </div>
     );

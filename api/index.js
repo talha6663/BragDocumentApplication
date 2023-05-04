@@ -34,7 +34,7 @@ app.post('/brags', async (req, res) => {
 // Get all
 app.get('/brags', async (req, res) => {
 	try {
-		const allBrags = await pool.query('SELECT * FROM brags');
+		const allBrags = await pool.query('SELECT * FROM brags ORDER BY created_at DESC');
 		res.json(allBrags.rows);
 	} catch (err) {
 		console.error(err.message);

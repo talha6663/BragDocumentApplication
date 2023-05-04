@@ -7,9 +7,3 @@ CREATE TABLE brags(
    created_at TIMESTAMP NOT NULL DEFAULT NOW(),
    updated_at TIMESTAMP NOT NULL DEFAULT NOW()
 );
-
-
-
-
-INSERT INTO brags (user_id, brag) VALUES ('111', 'My first brag');
-INSERT INTO brags (user_id, brag) VALUES ('222', 'My second brag');

@@ -15,8 +15,11 @@ const InputForm = (props) => {
 				body: JSON.stringify(body),
 			});
 
-			// window.location = '/';
+			// Refresh brag list
             props.toggleRefreshList();
+
+			// Clear input
+			setBrag("");
 		} catch (err) {
 			console.error(err.message);
 		}
@@ -28,8 +31,8 @@ const InputForm = (props) => {
 				{/* <label for="title">Title</label>
 				<input type="text" id="title" className="form_element" value={title} onChange={(e) => setTitle(e.target.value)} /> */}
 
-				<label for="brag">Brag Details</label>
-				<textarea id="brag" col="6" rows="14" className="form_element" onChange={(e) => setBrag(e.target.value)} value={brag}></textarea>
+				{/* <label for="brag">Brag Details</label> */}
+				<textarea id="brag" col="6" rows="14" className="form_element" placeholder="Type your brag here!" onChange={(e) => setBrag(e.target.value)} value={brag}></textarea>
 
 				<button class="btn">Submit</button>
 			</form>

@@ -23,7 +23,6 @@ body {
   padding-right: 8px;
 }
 .panel_right {
-  /* background: #585858; */
   width: 70%;
   padding-left: 8px;
 }
@@ -47,7 +46,6 @@ nav .logo {
 .input_form {
   display: flex;
   flex-direction: column;
-  /* width: 25%; */
 }
 .form_element {
   background: #212121;
@@ -76,3 +74,23 @@ label {
   text-transform: uppercase;
   padding: 14px;
 }
+
+/* Brag cards */
+.brag_card {
+  background: #212121;
+  border: 2px solid #121212;
+  border-radius: 6px;
+  white-space: pre-line;
+  padding: 10px;
+  margin-bottom: 6px;
+}
+.brag_card_info {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.8rem;
+  color: #9c9c9c;
+  margin-top: 6px;
+}
+/* .brag_card_info span {
+  margin-right: 12px;
+} */
