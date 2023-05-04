@@ -47,6 +47,9 @@ nav .logo {
   display: flex;
   flex-direction: column;
 }
+textarea {
+  resize: none;
+}
 .form_element {
   background: #212121;
   border: 2px solid #121212;
@@ -73,6 +76,10 @@ label {
   font-weight: 900;
   text-transform: uppercase;
   padding: 14px;
+  transition: 0.5s;
+}
+.btn:hover {
+  background: #3b5e62;
 }
 
 /* Brag cards */

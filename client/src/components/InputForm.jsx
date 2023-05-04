@@ -32,7 +32,7 @@ const InputForm = (props) => {
 				<input type="text" id="title" className="form_element" value={title} onChange={(e) => setTitle(e.target.value)} /> */}
 
 				{/* <label for="brag">Brag Details</label> */}
-				<textarea id="brag" col="6" rows="14" className="form_element" placeholder="Type your brag here!" onChange={(e) => setBrag(e.target.value)} value={brag}></textarea>
+				<textarea id="brag" col="6" rows="14" className="form_element" placeholder="Brag what you've done!" onChange={(e) => setBrag(e.target.value)} value={brag}></textarea>
 
 				<button class="btn">Submit</button>
 			</form>
