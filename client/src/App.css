@@ -66,6 +66,7 @@ textarea {
   font-size: 1rem;
   margin-bottom: 12px;
   padding: 14px;
+  width: 100%;
 }
 label {
   font-weight: 600;
@@ -105,6 +106,7 @@ label {
 }
 .brag_card_info {
   display: flex;
+  align-items: center;
   justify-content: space-between;
   font-size: 0.8rem;
   color: #9c9c9c;
@@ -113,3 +115,28 @@ label {
 /* .brag_card_info span {
   margin-right: 12px;
 } */
+
+dialog::backdrop {
+  background-color: rgba(0, 0, 0, 0.8);
+}
+
+dialog {
+  background: #333;
+  border: 2px solid #42828A;
+  border-radius: 6px;
+  padding: 20px;
+  width: 500px;
+}
+
+dialog .button_container {
+  display: flex;
+  justify-content: space-between;
+  /* width: 100%; */
+}
+dialog .button_container .btn {
+  width: 100%;
+  margin-right: 6px;
+}
+dialog .button_container .btn:last-child {
+  margin-right: 0;
+}

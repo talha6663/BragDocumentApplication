@@ -42,9 +42,11 @@ const EditBrag = ({item, refreshList}) => {
             <button className="btn btn_small" onClick={openModal}>Edit</button>
 
             <dialog ref={modalRef}>
-                <textarea className="form_element" value={brag} onChange={(e) => setBrag(e.target.value)} />
-                <button type="button" onClick={(e) => updateBrag(e)}>Edit</button>
-                <button onClick={closeModal}>Close</button>
+                <textarea className="form_element" rows="14" value={brag} onChange={(e) => setBrag(e.target.value)} />
+                <div className="button_container">
+					<button className="btn" type="button" onClick={(e) => updateBrag(e)}>Save</button>
+					<button className="btn" onClick={closeModal}>Close</button>
+				</div>
             </dialog>
         </>
     );
