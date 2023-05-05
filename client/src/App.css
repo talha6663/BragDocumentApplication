@@ -91,8 +91,9 @@ label {
 }
 .btn_small {
   font-size: 0.8rem;
-  padding: 2px 10px;
+  padding: 0 10px;
   margin-left: 6px;
+  min-width: 80px;
 }
 
 /* Brag cards */
@@ -112,14 +113,11 @@ label {
   color: #9c9c9c;
   margin-top: 6px;
 }
-/* .brag_card_info span {
-  margin-right: 12px;
-} */
 
+/* Modals */
 dialog::backdrop {
   background-color: rgba(0, 0, 0, 0.8);
 }
-
 dialog {
   background: #333;
   border: 2px solid #42828A;
@@ -127,11 +125,9 @@ dialog {
   padding: 20px;
   width: 500px;
 }
-
 dialog .button_container {
   display: flex;
   justify-content: space-between;
-  /* width: 100%; */
 }
 dialog .button_container .btn {
   width: 100%;
