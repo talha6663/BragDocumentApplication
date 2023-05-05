@@ -1,11 +1,11 @@
-import React, { useState } from 'react';
-import InputForm from './InputForm';
-import ListBrags from './ListBrags';
+import React, { useState } from "react";
+import InputForm from "./InputForm";
+import ListBrags from "./ListBrags";
 
 const ParentComponent = () => {
 	const [refreshList, setRefreshList] = useState(false);
 
-	// Function to toggle the refresh state variable
+	// Refresh state variable
 	function toggleRefreshList() {
 		setRefreshList(!refreshList);
 	}

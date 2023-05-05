@@ -1,10 +1,10 @@
-require('dotenv').config();
+require("dotenv").config();
 
-const express = require('express');
+const express = require("express");
 const app = express();
 const PORT = process.env.SERVER_PORT || 5000;
-const cors = require('cors');
-const pool = require('./db');
+const cors = require("cors");
+const pool = require("./db");
 
 // Middleware
 app.use(cors());
@@ -14,15 +14,15 @@ app.use(express.json());
  * ROUTES
  */
 // Create
-app.post('/brags', async (req, res) => {
+app.post("/brags", async (req, res) => {
 	try {
 		// const user_id = req.body.user_id;
 		const user_id = 815138;
 		// const title = req.body.title;
-		const title = 'Default title';
+		const title = "Default title";
 		const brag = req.body.brag;
-		const tags = ['php', 'react'];
-		const newBrag = await pool.query('INSERT INTO brags (user_id, title, brag, tags) VALUES ($1, $2, $3, $4) RETURNING *', [user_id, title, brag, tags]);
+		const tags = ["php", "react"];
+		const newBrag = await pool.query("INSERT INTO brags (user_id, title, brag, tags) VALUES ($1, $2, $3, $4) RETURNING *", [user_id, title, brag, tags]);
 
 		res.json(newBrag.rows[0]);
 	} catch (err) {
@@ -30,10 +30,10 @@ app.post('/brags', async (req, res) => {
 	}
 });
 
-// Get all
-app.get('/brags', async (req, res) => {
+// Read
+app.get("/brags", async (req, res) => {
 	try {
-		const allBrags = await pool.query('SELECT * FROM brags ORDER BY created_at DESC');
+		const allBrags = await pool.query("SELECT * FROM brags ORDER BY created_at DESC");
 		res.json(allBrags.rows);
 	} catch (err) {
 		console.error(err.message);
@@ -41,25 +41,25 @@ app.get('/brags', async (req, res) => {
 });
 
 // Update
-app.put('/brags/:id', async (req, res) => {
+app.put("/brags/:id", async (req, res) => {
 	try {
 		const { id } = req.params;
 		const { brag } = req.body;
-		const updateBrag = await pool.query('UPDATE brags SET brag = $1 WHERE brag_id = $2', [brag, id]);
+		const updateBrag = await pool.query("UPDATE brags SET brag = $1 WHERE brag_id = $2", [brag, id]);
 
-		res.json('Brag was updated!');
+		res.json("Brag was updated!");
 	} catch (err) {
 		console.error(err.message);
 	}
 });
 
 // Delete
-app.delete('/brags/:id', async (req, res) => {
+app.delete("/brags/:id", async (req, res) => {
 	try {
 		const { id } = req.params;
-		const deleteBrag = await pool.query('DELETE FROM brags WHERE brag_id = $1', [id]);
+		const deleteBrag = await pool.query("DELETE FROM brags WHERE brag_id = $1", [id]);
 
-		res.json('Record deleted');
+		res.json("Record deleted");
 	} catch (err) {
 		console.error(err.message);
 	}
