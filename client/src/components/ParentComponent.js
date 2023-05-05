@@ -13,7 +13,8 @@ const ParentComponent = () => {
 	return (
 		<>
 			<InputForm toggleRefreshList={toggleRefreshList} />
-			<ListBrags refreshList={refreshList} />
+			{/* <ListBrags refreshList={refreshList} /> */}
+			<ListBrags toggleRefreshList={toggleRefreshList} />
 		</>
 	);
 };

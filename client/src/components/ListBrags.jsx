@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import EditBrag from './EditBrag';
 
 const ListBrags = (props) => {
 
@@ -15,9 +16,21 @@ const ListBrags = (props) => {
 		}
 	};
 
+    const deleteBrag = async (id) => {
+		try {
+			await fetch(`http://localhost:5000/brags/${id}`, {
+				method: 'DELETE',
+			});
+
+			setBrags(brags.filter((brag) => brag.brag_id !== id));
+		} catch (err) {
+			console.error(err.message);
+		}
+	};
+
     useEffect(() => {
 		getBrags();
-	}, [props.refreshList]);
+	}, [props.toggleRefreshList]);
 
     return (
         <div className="panel_right">
@@ -26,8 +39,14 @@ const ListBrags = (props) => {
                 <div key={item.brag_id} className="brag_card">
                     {item.brag}
                     <div className="brag_card_info">
+                        <span>CREATED: {item.created_at}</span>
                         <span>TAGS: {item.tags}</span>
-                        <span>CREATED: {item.created_at}</span>    
+                        <span>
+                            <EditBrag item={item} refreshList={props.toggleRefreshList} />
+                            <button className="btn btn_small" onClick={() => deleteBrag(item.brag_id)}>
+                                Delete
+                            </button>
+                        </span> 
                     </div>
                 </div>
             ))}

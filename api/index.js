@@ -40,6 +40,31 @@ app.get('/brags', async (req, res) => {
 	}
 });
 
+// Update
+app.put('/brags/:id', async (req, res) => {
+	try {
+		const { id } = req.params;
+		const { brag } = req.body;
+		const updateBrag = await pool.query('UPDATE brags SET brag = $1 WHERE brag_id = $2', [brag, id]);
+
+		res.json('Brag was updated!');
+	} catch (err) {
+		console.error(err.message);
+	}
+});
+
+// Delete
+app.delete('/brags/:id', async (req, res) => {
+	try {
+		const { id } = req.params;
+		const deleteBrag = await pool.query('DELETE FROM brags WHERE brag_id = $1', [id]);
+
+		res.json('Record deleted');
+	} catch (err) {
+		console.error(err.message);
+	}
+});
+
 app.listen(PORT, () => {
 	console.log(`Server listening on port ${PORT}`);
 });
