@@ -4,12 +4,13 @@ import { FaEdit } from "react-icons/fa";
 const EditBrag = ({item, refreshList}) => {
 
     const [brag, setBrag] = useState(item.brag);
+	const [tags, setTags] = useState(item.tags);
     const modalRef = useRef(null);
 
     const updateBrag = async (e) => {
 		e.preventDefault();
 		try {
-			const body = { brag };
+			const body = { brag, tags };
 			await fetch(`http://localhost:5000/brags/${item.brag_id}`, {
 				method: 'PUT',
 				headers: { 'Content-Type': 'application/json' },
@@ -44,6 +45,8 @@ const EditBrag = ({item, refreshList}) => {
 
             <dialog ref={modalRef}>
                 <textarea className="form_element" rows="14" value={brag} onChange={(e) => setBrag(e.target.value)} />
+				<label htmlFor="tags">Tags - Comma separated if multiple</label>
+				<input id="tags" className="form_element" placeholder="Eg: mentored, javascript, winning" onChange={(e) => setTags(e.target.value)} value={tags} />
                 <div className="button_container">
 					<button className="btn" type="button" onClick={(e) => updateBrag(e)}>Save Changes</button>
 					<button className="btn" onClick={closeModal}>Close</button>

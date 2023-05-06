@@ -3,12 +3,13 @@ import React, { useState } from 'react';
 const InputForm = (props) => {
 
     // const [title, setTitle] = useState('');
-    const [brag, setBrag] = useState('');
+    const [brag, setBrag] = useState("");
+	const [tags, setTags] = useState("");
 
 	const onSubmitForm = async (e) => {
 		e.preventDefault();
 		try {
-			const body = { brag };
+			const body = { brag, tags };
 			await fetch('http://localhost:5000/brags', {
 				method: 'POST',
 				headers: { 'Content-Type': 'application/json' },
@@ -18,8 +19,9 @@ const InputForm = (props) => {
 			// Refresh brag list
             props.toggleRefreshList();
 
-			// Clear input
+			// Clear inputs
 			setBrag("");
+			setTags("");
 		} catch (err) {
 			console.error(err.message);
 		}
@@ -28,8 +30,11 @@ const InputForm = (props) => {
     return (
 		<div className="panel_left">
 			<form className="input_form" onSubmit={onSubmitForm}>
-				<textarea id="brag" col="6" rows="14" className="form_element" placeholder="Brag what you've done!" onChange={(e) => setBrag(e.target.value)} value={brag}></textarea>
-				<button class="btn">Submit</button>
+				<label htmlFor="brag">Brag about what you've done!</label>
+				<textarea id="brag" col="6" rows="10" className="form_element" placeholder="I've accomplished ..." onChange={(e) => setBrag(e.target.value)} value={brag}></textarea>
+				<label htmlFor="tags">Tags - Comma separated if multiple</label>
+				<input id="tags" className="form_element" placeholder="Eg: mentored, javascript, winning" onChange={(e) => setTags(e.target.value)} value={tags} />
+				<button className="btn">Submit</button>
 			</form>
 
 			<div>
@@ -39,6 +44,7 @@ const InputForm = (props) => {
 					<li>Document your goals and accomplishments.</li>
 					<li>Your contributions to a project.</li>
 					<li>Little wins!</li>
+					<li>Use comma separated tags to organize your brags.</li>
 				</ul>
 				<div>You can update it daily or weekly, just be sure to stay consistant.  Your career will thank you.</div>
 			</div>

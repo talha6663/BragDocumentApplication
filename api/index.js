@@ -18,10 +18,9 @@ app.post("/brags", async (req, res) => {
 	try {
 		// const user_id = req.body.user_id;
 		const user_id = 815138;
-		// const title = req.body.title;
 		const title = "Default title";
 		const brag = req.body.brag;
-		const tags = ["php", "react"];
+		const tags = req.body.tags.split(",");
 
 		if (brag !== "") {
 			const newBrag = await pool.query("INSERT INTO brags (user_id, title, brag, tags) VALUES ($1, $2, $3, $4) RETURNING *", [user_id, title, brag, tags]);
@@ -46,8 +45,9 @@ app.get("/brags", async (req, res) => {
 app.put("/brags/:id", async (req, res) => {
 	try {
 		const { id } = req.params;
-		const { brag } = req.body;
-		const updateBrag = await pool.query("UPDATE brags SET brag = $1 WHERE brag_id = $2", [brag, id]);
+		const brag = req.body.brag;
+		const tags = req.body.tags.split(",");
+		const updateBrag = await pool.query("UPDATE brags SET brag = $1, tags = $2 WHERE brag_id = $3", [brag, tags, id]);
 
 		res.json("Brag was updated!");
 	} catch (err) {
