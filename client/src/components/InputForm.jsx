@@ -28,14 +28,20 @@ const InputForm = (props) => {
     return (
 		<div className="panel_left">
 			<form className="input_form" onSubmit={onSubmitForm}>
-				{/* <label for="title">Title</label>
-				<input type="text" id="title" className="form_element" value={title} onChange={(e) => setTitle(e.target.value)} /> */}
-
-				{/* <label for="brag">Brag Details</label> */}
 				<textarea id="brag" col="6" rows="14" className="form_element" placeholder="Brag what you've done!" onChange={(e) => setBrag(e.target.value)} value={brag}></textarea>
-
 				<button class="btn">Submit</button>
 			</form>
+
+			<div>
+				<h3>You won't remember everything you did and neither will your manager!</h3>
+				<div>This is why you should always have a bragdoc on the go.  Here are some tips and suggestions.</div>
+				<ul>
+					<li>Document your goals and accomplishments.</li>
+					<li>Your contributions to a project.</li>
+					<li>Little wins!</li>
+				</ul>
+				<div>You can update it daily or weekly, just be sure to stay consistant.  Your career will thank you.</div>
+			</div>
 		</div>
     );
 };

@@ -1,4 +1,5 @@
 import React, { useRef, useState } from 'react';
+import { FaEdit } from "react-icons/fa";
 
 const EditBrag = ({item, refreshList}) => {
 
@@ -39,7 +40,7 @@ const EditBrag = ({item, refreshList}) => {
 
     return (
         <>
-            <button className="btn btn_small" onClick={openModal}>Edit</button>
+			<FaEdit className="icon" title="Edit Brag" onClick={openModal} />
 
             <dialog ref={modalRef}>
                 <textarea className="form_element" rows="14" value={brag} onChange={(e) => setBrag(e.target.value)} />

@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { FaTrash } from "react-icons/fa";
 import EditBrag from './EditBrag';
 
 const ListBrags = (props) => {
@@ -32,22 +33,28 @@ const ListBrags = (props) => {
 		getBrags();
 	}, [props.toggleRefreshList]);
 
+    // Formats the date
+    function formatDate(dateString) {
+        const date = new Date(dateString);
+        const options = { month: 'short', day: 'numeric', year: 'numeric', hour: 'numeric', minute: 'numeric' };
+        const formattedDate = date.toLocaleDateString('en-US', options).replace(',', '');
+        return formattedDate;
+    }
+
     return (
         <div className="panel_right">
 
             {brags.map((item) => (
                 <div key={item.brag_id} className="brag_card">
-                    {item.brag}
-                    <div className="brag_card_info">
-                        <span>CREATED: {item.created_at}</span>
-                        <span>TAGS: {item.tags}</span>
-                        <span>
+                    <div className="card_header">
+                        <h4>{formatDate(item.created_at)}</h4>
+                        <div>
                             <EditBrag item={item} refreshList={props.toggleRefreshList} />
-                            <button className="btn btn_small" onClick={() => deleteBrag(item.brag_id)}>
-                                Delete
-                            </button>
-                        </span> 
+                            <FaTrash className="icon" title="Delete" onClick={() => deleteBrag(item.brag_id)} />
+                        </div>
                     </div>
+                    {item.brag}                      
+                    <div className="tags">TAGS: {item.tags}</div>
                 </div>
             ))}
 

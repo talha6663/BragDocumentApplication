@@ -2,6 +2,8 @@
 
 :root {
   font-size: 16px;
+  --color1: #ae8b2b;
+  --color2: #1c1e20;
 }
 
 *,
@@ -14,7 +16,7 @@ html,
 body {
   font-family: 'Source Sans Pro', sans-serif;
   font-weight: 400;
-  background: #333;
+  background: #313234;
   color: #f4f4f4;
   margin: 0;
 }
@@ -31,7 +33,7 @@ body {
 }
 .panel_right {
   width: 70%;
-  padding-left: 8px;
+  padding-left: 28px;
 }
 
 /* Navbar */
@@ -39,7 +41,8 @@ nav {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  background: #212121;
+  background: var(--color2);
+  color: var(--color1);
   height: 60px;
   padding: 0 20px;
 }
@@ -48,21 +51,30 @@ nav .logo {
   font-size: 2rem;
   letter-spacing: -2px;
 }
+nav .logo .logo_icon {
+  font-size: 1.4rem;
+  color: #9c9c9c;
+}
 
 /* Form stuff */
 .input_form {
   display: flex;
   flex-direction: column;
+  margin-bottom: 24px;
 }
 textarea {
   resize: none;
 }
+textarea:focus{
+  outline: 3px solid var(--color1);
+  /* border: 3px solid var(--color1); */
+}
 .form_element {
-  background: #212121;
-  border: 2px solid #121212;
+  background: var(--color2);
+  border: 2px solid var(--color1);
   border-radius: 6px;
   font-family: inherit;
-  color: #a9c6ca;
+  color: #f4f4f4;
   font-size: 1rem;
   margin-bottom: 12px;
   padding: 14px;
@@ -75,19 +87,20 @@ label {
   padding-left: 6px;
 }
 .btn {
-  background: #42828A;
-  border: 3px solid #42828A;
+  background: var(--color1);
+  border: 3px solid var(--color1);
   border-radius: 6px;
   font-family: inherit;
   font-size: 1rem;
-  color: #f4f4f4;
+  color: var(--color2);
   font-weight: 900;
   text-transform: uppercase;
-  padding: 14px;
+  padding: 10px;
   transition: 0.5s;
 }
 .btn:hover {
-  background: #3b5e62;
+  background: var(--color2);
+  color: var(--color1);
 }
 .btn_small {
   font-size: 0.8rem;
@@ -96,19 +109,37 @@ label {
   min-width: 80px;
 }
 
+.icon {
+  width: 14px;
+  height: 14px;
+  cursor: pointer;
+  color: #9c9c9c;
+  margin-left: 12px;
+}
+.icon:hover {
+  color: var(--color1);
+}
+
 /* Brag cards */
+h4 {
+  margin: 0px;
+  font-size: 1.1rem;
+  color: var(--color1);
+}
 .brag_card {
-  background: #212121;
-  border: 2px solid #121212;
+  background: var(--color2);
+  border: 2px solid #141617;
   border-radius: 6px;
   white-space: pre-line;
   padding: 10px;
-  margin-bottom: 6px;
+  margin-bottom: 14px;
 }
-.brag_card_info {
+.brag_card .card_header {
   display: flex;
   align-items: center;
   justify-content: space-between;
+}
+.tags {
   font-size: 0.8rem;
   color: #9c9c9c;
   margin-top: 6px;
