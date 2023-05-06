@@ -22,9 +22,11 @@ app.post("/brags", async (req, res) => {
 		const title = "Default title";
 		const brag = req.body.brag;
 		const tags = ["php", "react"];
-		const newBrag = await pool.query("INSERT INTO brags (user_id, title, brag, tags) VALUES ($1, $2, $3, $4) RETURNING *", [user_id, title, brag, tags]);
 
-		res.json(newBrag.rows[0]);
+		if (brag !== "") {
+			const newBrag = await pool.query("INSERT INTO brags (user_id, title, brag, tags) VALUES ($1, $2, $3, $4) RETURNING *", [user_id, title, brag, tags]);
+			res.json(newBrag.rows[0]);
+		}
 	} catch (err) {
 		console.error(err.message);
 	}

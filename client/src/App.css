@@ -65,9 +65,11 @@ nav .logo .logo_icon {
 textarea {
   resize: none;
 }
-textarea:focus{
+textarea:focus {
   outline: 3px solid var(--color1);
-  /* border: 3px solid var(--color1); */
+}
+button:focus {
+  outline: none;
 }
 .form_element {
   background: var(--color2);
@@ -124,6 +126,7 @@ label {
 h4 {
   margin: 0px;
   font-size: 1.1rem;
+  font-weight: 900;
   color: var(--color1);
 }
 .brag_card {
@@ -142,7 +145,7 @@ h4 {
 .tags {
   font-size: 0.8rem;
   color: #9c9c9c;
-  margin-top: 6px;
+  margin-top: 10px;
 }
 
 /* Modals */
