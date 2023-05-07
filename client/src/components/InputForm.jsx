@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 
 const InputForm = (props) => {
 
-    // const [title, setTitle] = useState('');
     const [brag, setBrag] = useState("");
 	const [tags, setTags] = useState("");
 
@@ -42,6 +41,7 @@ const InputForm = (props) => {
 				<div>This is why you should always have a bragdoc on the go.  Here are some tips and suggestions.</div>
 				<ul>
 					<li>Document your goals and accomplishments.</li>
+					<li>Update it weekly or montly.</li>
 					<li>Your contributions to a project.</li>
 					<li>Little wins!</li>
 					<li>Use comma separated tags to organize your brags.</li>

@@ -1,4 +1,4 @@
-import React, { useRef, useState } from 'react';
+import { useRef, useState } from 'react';
 import { FaEdit } from "react-icons/fa";
 
 const EditBrag = ({item, refreshList}) => {
@@ -44,7 +44,8 @@ const EditBrag = ({item, refreshList}) => {
 			<FaEdit className="icon" title="Edit Brag" onClick={openModal} />
 
             <dialog ref={modalRef}>
-                <textarea className="form_element" rows="14" value={brag} onChange={(e) => setBrag(e.target.value)} />
+				<label htmlFor="brag">Brag about what you've done!</label>
+                <textarea className="form_element" rows="10" value={brag} onChange={(e) => setBrag(e.target.value)} />
 				<label htmlFor="tags">Tags - Comma separated if multiple</label>
 				<input id="tags" className="form_element" placeholder="Eg: mentored, javascript, winning" onChange={(e) => setTags(e.target.value)} value={tags} />
                 <div className="button_container">

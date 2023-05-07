@@ -4,6 +4,7 @@
   font-size: 16px;
   --color1: #ae8b2b;
   --color2: #1c1e20;
+  --color3: #c4ab65;
 }
 
 *,
@@ -65,10 +66,10 @@ nav .logo .logo_icon {
 textarea {
   resize: none;
 }
-textarea:focus {
-  outline: 3px solid var(--color1);
+textarea:focus, input:focus {
+  border-color: var(--color3);
 }
-button:focus {
+textarea:focus, input:focus, button:focus {
   outline: none;
 }
 .form_element {
@@ -86,6 +87,7 @@ label {
   font-weight: 600;
   font-size: 0.9rem;
   text-transform: uppercase;
+  color: #f4f4f4;
   padding-left: 6px;
 }
 .btn {
@@ -97,7 +99,7 @@ label {
   color: var(--color2);
   font-weight: 900;
   text-transform: uppercase;
-  padding: 10px;
+  padding: 6px;
   transition: 0.5s;
 }
 .btn:hover {
@@ -123,7 +125,7 @@ label {
 }
 
 /* Brag cards */
-h4 {
+.brag_card .date {
   margin: 0px;
   font-size: 1.1rem;
   font-weight: 900;
@@ -131,21 +133,35 @@ h4 {
 }
 .brag_card {
   background: var(--color2);
-  border: 2px solid #141617;
+  border: 3px solid #141617;
   border-radius: 6px;
   white-space: pre-line;
   padding: 10px;
-  margin-bottom: 14px;
+  margin-bottom: 12px;
 }
 .brag_card .card_header {
   display: flex;
   align-items: center;
   justify-content: space-between;
 }
-.tags {
-  font-size: 0.8rem;
+.brag_text {
+  font-size: 1rem;
+  margin: 2px 0;
+}
+.tags_wrapper {
+  display: flex;
+  align-items: center;
+  font-size: 0.75rem;
   color: #9c9c9c;
   margin-top: 10px;
+}
+.tags_wrapper span {
+  background: #464646;
+  border-radius: 50px;
+  font-weight: 400;
+  color: #f4f4f4;
+  padding: 1px 10px;
+  margin-left: 6px;
 }
 
 /* Modals */

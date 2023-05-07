@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { FaTrash } from "react-icons/fa";
 import EditBrag from './EditBrag';
 
@@ -41,20 +41,26 @@ const ListBrags = (props) => {
         return formattedDate;
     }
 
+    // Takes the tags array, styles and cleans each element
+    function formatTags(arr) {
+        const str = arr.map(element => `<span>${element.trim()}</span>`).join('');
+        return <div dangerouslySetInnerHTML={{__html: str}}></div>;
+    }
+
     return (
         <div className="panel_right">
 
             {brags.map((item) => (
                 <div key={item.brag_id} className="brag_card">
                     <div className="card_header">
-                        <h4>{formatDate(item.created_at)}</h4>
+                        <div className="date">{formatDate(item.created_at)}</div>
                         <div>
                             <EditBrag item={item} refreshList={props.toggleRefreshList} />
                             <FaTrash className="icon" title="Delete" onClick={() => deleteBrag(item.brag_id)} />
                         </div>
                     </div>
-                    {item.brag}                      
-                    <div className="tags">TAGS: {item.tags}</div>
+                    <div className="brag_text">{item.brag}</div>
+                    <div className="tags_wrapper">TAGS {formatTags(item.tags)}</div>
                 </div>
             ))}
 
