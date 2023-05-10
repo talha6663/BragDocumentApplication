@@ -1,9 +1,6 @@
 CREATE TABLE users(
    user_id SERIAL PRIMARY KEY,
-   password VARCHAR(255),
-   email VARCHAR(255),
-   created_at TIMESTAMP NOT NULL DEFAULT NOW(),
-   updated_at TIMESTAMP NOT NULL DEFAULT NOW()
+   email VARCHAR(255)
 );
 
 CREATE TABLE brags(

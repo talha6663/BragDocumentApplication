@@ -1,6 +1,6 @@
-import './App.css';
-import Navbar from './components/Navbar';
-import ParentComponent from './components/ParentComponent';
+import "../App.css";
+import Navbar from "./Navbar";
+import ParentComponent from "./ParentComponent";
 
 function App() {
 	return (

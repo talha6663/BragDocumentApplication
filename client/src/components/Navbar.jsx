@@ -4,7 +4,7 @@ const Navbar = () => {
     return (
         <nav>
             <div className="logo"><FaFile className="logo_icon" />BRAGBOX</div>
-            Signin with Github
+            <h3>Sign In</h3>
         </nav>
     );
 };
