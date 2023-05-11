@@ -173,7 +173,6 @@ label {
   border-bottom: 1px solid #dadada;
   white-space: pre-line;
   padding: 10px;
-  /* margin-bottom: 12px; */
 }
 .brag_card:last-child {
   border-bottom: 0;
