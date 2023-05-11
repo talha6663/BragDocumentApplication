@@ -17,15 +17,15 @@ html,
 body {
   font-family: 'Source Sans Pro', sans-serif;
   font-weight: 400;
-  background: #f6f6f6;
-  color: #373F46;
+  background: #313234;
+  color: #f4f4f4;
   margin: 0;
 }
 
 .App {
   display: flex;
   justify-content: stretch;
-  margin: 20px 80px;
+  margin: 20px;
 }
 
 .panel_left {
@@ -34,10 +34,7 @@ body {
 }
 .panel_right {
   width: 70%;
-  padding-left: 40px;
-}
-h3 {
-  color: #3c576e;
+  padding-left: 28px;
 }
 
 /* Navbar */
@@ -45,11 +42,10 @@ nav {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  background: transparent;
-  border-bottom: 1px solid #bcd2e4;
-  color: #3c576e;
+  background: var(--color2);
+  color: var(--color1);
   height: 60px;
-  padding: 0 80px;
+  padding: 0 20px;
 }
 nav .logo {
   font-weight: 900;
@@ -58,21 +54,7 @@ nav .logo {
 }
 nav .logo .logo_icon {
   font-size: 1.4rem;
-  color: #8a98a4;
-}
-nav .nav_button {
-  background: transparent;
-  border: 1px solid transparent;
-  border-radius: 8px;
-  font-size: 1rem;
-  font-weight: 600;
-  color: #3c576e;
-  padding: 8px;
-  transition: 0.4s;
-}
-nav .nav_button:hover {
-  background: #ececec;
-  border: 1px solid #bcd2e4;
+  color: #9c9c9c;
 }
 
 /* Form stuff */
@@ -85,17 +67,17 @@ textarea {
   resize: none;
 }
 textarea:focus, input:focus {
-  border-color: #3c576e;
+  border-color: var(--color3);
 }
 textarea:focus, input:focus, button:focus {
   outline: none;
 }
 .form_element {
-  background: #f6f6f6;
-  border: 2px solid #bcd2e4;
+  background: var(--color2);
+  border: 2px solid var(--color1);
   border-radius: 6px;
   font-family: inherit;
-  color: #373F46;
+  color: #f4f4f4;
   font-size: 1rem;
   margin-bottom: 12px;
   padding: 14px;
@@ -105,24 +87,24 @@ label {
   font-weight: 600;
   font-size: 0.9rem;
   text-transform: uppercase;
-  color: #3c576e;
+  color: #f4f4f4;
   padding-left: 6px;
 }
 .btn {
-  background: #8a98a4;
-  border: 1px solid #8a98a4;
+  background: var(--color1);
+  border: 3px solid var(--color1);
   border-radius: 6px;
   font-family: inherit;
   font-size: 1rem;
-  color: #f6f6f6;
+  color: var(--color2);
   font-weight: 900;
   text-transform: uppercase;
   padding: 6px;
   transition: 0.5s;
 }
 .btn:hover {
-  background: #3c576e;
-  color: #f6f6f6;
+  background: var(--color2);
+  color: var(--color1);
 }
 .btn_small {
   font-size: 0.8rem;
@@ -139,26 +121,23 @@ label {
   margin-left: 12px;
 }
 .icon:hover {
-  color: #3c576e;
+  color: var(--color1);
 }
 
 /* Brag cards */
 .brag_card .date {
   margin: 0px;
-  font-size:0.8rem;
-  font-weight: 600;
-  color: #909090;
-  font-style: italic;
+  font-size: 1.1rem;
+  font-weight: 900;
+  color: var(--color1);
 }
 .brag_card {
-  background: #f6f6f6;
-  border-bottom: 1px solid #dadada;
+  background: var(--color2);
+  border: 3px solid #141617;
+  border-radius: 6px;
   white-space: pre-line;
   padding: 10px;
-  /* margin-bottom: 12px; */
-}
-.brag_card:last-child {
-  border-bottom: 0;
+  margin-bottom: 12px;
 }
 .brag_card .card_header {
   display: flex;
@@ -167,7 +146,6 @@ label {
 }
 .brag_text {
   font-size: 1rem;
-  font-weight: 400;
   margin: 2px 0;
 }
 .tags_wrapper {
@@ -178,11 +156,11 @@ label {
   margin-top: 10px;
 }
 .tags_wrapper span {
-  background: #bcd2e4;
+  background: #464646;
   border-radius: 50px;
   font-weight: 400;
-  color: #333;
-  padding: 1px 12px;
+  color: #f4f4f4;
+  padding: 1px 10px;
   margin-left: 6px;
 }
 
@@ -191,8 +169,8 @@ dialog::backdrop {
   background-color: rgba(0, 0, 0, 0.8);
 }
 dialog {
-  background: #f6f6f6;
-  border: 2px solid #bcd2e4;
+  background: #333;
+  border: 2px solid #141617;
   border-radius: 6px;
   padding: 20px;
   width: 500px;

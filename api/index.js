@@ -46,7 +46,14 @@ app.put("/brags/:id", async (req, res) => {
 	try {
 		const { id } = req.params;
 		const brag = req.body.brag;
-		const tags = req.body.tags.split(",");
+		let tags = req.body.tags;
+
+		if (tags.length === 1) {
+			tags = req.body.tags;
+		} else {
+			tags = req.body.tags.split(",");
+		}
+
 		const updateBrag = await pool.query("UPDATE brags SET brag = $1, tags = $2 WHERE brag_id = $3", [brag, tags, id]);
 
 		res.json("Brag was updated!");
