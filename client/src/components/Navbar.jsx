@@ -33,12 +33,16 @@ const Navbar = () => {
     return (
         <nav>
             <div className="logo"><FaFile className="logo_icon" />BRAGBOX</div>
-
-            {user?.displayName ? (
-                <button className="nav_button" onClick={handleSignOut}>{user?.displayName} - Sign Out</button>
-            ) : (
-                <button className="nav_button" onClick={handleGoogleSignIn}>Sign In</button>
-            )}
+            <div className="nav_rightSide">
+                {user?.displayName ? (
+                    <>
+                        <button className="nav_button no_border" onClick={handleSignOut}>Sign Out - {user?.displayName}</button> 
+                        <img referrerPolicy="no-referrer" className="profilePicture" src={user?.photoURL} alt="pic" />
+                    </>
+                ) : (
+                    <button className="nav_button" onClick={handleGoogleSignIn}>Sign In</button>
+                )}
+            </div>
         </nav>
     );
 };

@@ -64,15 +64,33 @@ nav .nav_button {
   background: transparent;
   border: 1px solid transparent;
   border-radius: 8px;
-  font-size: 1rem;
-  font-weight: 600;
+  font-size: 0.9rem;
+  font-weight: 400;
   color: #3c576e;
   padding: 8px;
   transition: 0.4s;
+  cursor: pointer;
 }
 nav .nav_button:hover {
   background: #ececec;
   border: 1px solid #bcd2e4;
+}
+nav .nav_button.no_border {
+  background: transparent;
+  border: none;
+  margin-right: 4px;
+}
+.nav_rightSide {
+  display: flex;
+  align-items: center;
+  justify-content: end;
+}
+nav .nav_rightSide .profilePicture {
+  border: 1px solid #6b6b6b;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  object-fit: cover;
 }
 
 /* Form stuff */
