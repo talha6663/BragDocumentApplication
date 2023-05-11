@@ -1,14 +1,16 @@
 import { useEffect, useState } from 'react';
 import { FaTrash } from "react-icons/fa";
+import { UserAuth } from '../context/AuthContext';
 import EditBrag from './EditBrag';
 
 const ListBrags = (props) => {
-
+    
     const [brags, setBrags] = useState([]);
+    const {user} = UserAuth();
 
-    const getBrags = async () => {
+    const getBrags = async (email) => {
 		try {
-			const response = await fetch('http://localhost:5000/brags');
+			const response = await fetch(`http://localhost:5000/brags?userEmail=${email}`);
 			const jsonData = await response.json();
 
 			setBrags(jsonData);
@@ -30,8 +32,8 @@ const ListBrags = (props) => {
 	};
 
     useEffect(() => {
-		getBrags();
-	}, [props.toggleRefreshList]);
+		getBrags(user.email);
+	}, [props.toggleRefreshList, user.email]);
 
     // Formats the date
     function formatDate(dateString) {

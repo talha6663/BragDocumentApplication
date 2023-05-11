@@ -1,14 +1,17 @@
 import React, { useState } from 'react';
+import { UserAuth } from '../context/AuthContext';
 
 const InputForm = (props) => {
 
     const [brag, setBrag] = useState("");
 	const [tags, setTags] = useState("");
+	const {user} = UserAuth();
+	const userEmail = user.email;
 
 	const onSubmitForm = async (e) => {
 		e.preventDefault();
 		try {
-			const body = { brag, tags };
+			const body = { brag, tags, userEmail };
 			await fetch('http://localhost:5000/brags', {
 				method: 'POST',
 				headers: { 'Content-Type': 'application/json' },

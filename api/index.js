@@ -16,14 +16,14 @@ app.use(express.json());
 // Create
 app.post("/brags", async (req, res) => {
 	try {
-		// const user_id = req.body.user_id;
 		const user_id = 815138;
+		const email = req.body.userEmail;
 		const title = "Default title";
 		const brag = req.body.brag;
 		const tags = req.body.tags.split(",");
 
 		if (brag !== "") {
-			const newBrag = await pool.query("INSERT INTO brags (user_id, title, brag, tags) VALUES ($1, $2, $3, $4) RETURNING *", [user_id, title, brag, tags]);
+			const newBrag = await pool.query("INSERT INTO brags (user_id, user_email, title, brag, tags) VALUES ($1, $2, $3, $4, $5) RETURNING *", [user_id, email, title, brag, tags]);
 			res.json(newBrag.rows[0]);
 		}
 	} catch (err) {
@@ -34,7 +34,9 @@ app.post("/brags", async (req, res) => {
 // Read
 app.get("/brags", async (req, res) => {
 	try {
-		const allBrags = await pool.query("SELECT * FROM brags ORDER BY created_at DESC");
+		const email = req.query.userEmail;
+		console.log(email);
+		const allBrags = await pool.query("SELECT * FROM brags WHERE user_email = $1 ORDER BY created_at DESC", [email]);
 		res.json(allBrags.rows);
 	} catch (err) {
 		console.error(err.message);
