@@ -9,6 +9,7 @@ const pool = require("./db");
 // Middleware
 app.use(cors());
 app.use(express.json());
+app.use(express.static("../build"));
 
 /**
  * ROUTES
@@ -56,7 +57,7 @@ app.put("/brags/:id", async (req, res) => {
 			tags = req.body.tags.split(",");
 		}
 
-		const updateBrag = await pool.query("UPDATE brags SET brag = $1, tags = $2 WHERE brag_id = $3", [brag, tags, id]);
+		await pool.query("UPDATE brags SET brag = $1, tags = $2 WHERE brag_id = $3", [brag, tags, id]);
 
 		res.json("Brag was updated!");
 	} catch (err) {
@@ -68,7 +69,7 @@ app.put("/brags/:id", async (req, res) => {
 app.delete("/brags/:id", async (req, res) => {
 	try {
 		const { id } = req.params;
-		const deleteBrag = await pool.query("DELETE FROM brags WHERE brag_id = $1", [id]);
+		await pool.query("DELETE FROM brags WHERE brag_id = $1", [id]);
 
 		res.json("Record deleted");
 	} catch (err) {
