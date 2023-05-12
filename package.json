@@ -20,7 +20,8 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "prod": "react-scripts build && npm run start --prefix api",
-    "server": "npm run start --prefix api"
+    "server": "npm run start --prefix api",
+    "omg": "npm install && npm install --prefix api"
   },
   "eslintConfig": {
     "extends": [
