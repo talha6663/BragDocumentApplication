@@ -9,7 +9,7 @@ const pool = require("./db");
 // Middleware
 app.use(cors());
 app.use(express.json());
-app.use(express.static("../build"));
+app.use(express.static("./client/build"));
 
 /**
  * ROUTES
