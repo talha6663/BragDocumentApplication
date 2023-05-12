@@ -11,7 +11,7 @@ const EditBrag = ({item, refreshList}) => {
 		e.preventDefault();
 		try {
 			const body = { brag, tags };
-			await fetch(`http://localhost:5000/brags/${item.brag_id}`, {
+			await fetch(`${process.env.REACT_APP_API_URL}/brags/${item.brag_id}`, {
 				method: 'PUT',
 				headers: { 'Content-Type': 'application/json' },
 				body: JSON.stringify(body),

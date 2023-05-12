@@ -12,7 +12,7 @@ const InputForm = (props) => {
 		e.preventDefault();
 		try {
 			const body = { brag, tags, userEmail };
-			await fetch('http://localhost:5000/brags', {
+			await fetch(`${process.env.REACT_APP_API_URL}/brags`, {
 				method: 'POST',
 				headers: { 'Content-Type': 'application/json' },
 				body: JSON.stringify(body),

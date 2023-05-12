@@ -10,7 +10,7 @@ const ListBrags = (props) => {
 
     const getBrags = async (email) => {
 		try {
-			const response = await fetch(`http://localhost:5000/brags?userEmail=${email}`);
+			const response = await fetch(`${process.env.REACT_APP_API_URL}/brags?userEmail=${email}`);
 			const jsonData = await response.json();
 
 			setBrags(jsonData);
@@ -21,7 +21,7 @@ const ListBrags = (props) => {
 
     const deleteBrag = async (id) => {
 		try {
-			await fetch(`http://localhost:5000/brags/${id}`, {
+			await fetch(`${process.env.REACT_APP_API_URL}/brags/${id}`, {
 				method: 'DELETE',
 			});
 
