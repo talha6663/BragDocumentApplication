@@ -2,6 +2,7 @@ import React from "react";
 import { GiStairsGoal } from "react-icons/gi";
 import { Link } from "react-router-dom";
 import { UserAuth } from "../context/AuthContext";
+import "../styles/Welcome.css";
 
 const Welcome = () => {
 	const { googleSignIn } = UserAuth();
