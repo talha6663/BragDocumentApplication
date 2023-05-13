@@ -83,7 +83,7 @@ nav .nav_button.no_border {
 .nav_rightSide {
   display: flex;
   align-items: center;
-  justify-content: end;
+  justify-content: flex-end;
 }
 nav .nav_rightSide .profilePicture {
   border: 1px solid #6b6b6b;

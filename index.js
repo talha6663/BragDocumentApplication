@@ -36,7 +36,6 @@ app.post("/brags", async (req, res) => {
 app.get("/brags", async (req, res) => {
 	try {
 		const email = req.query.userEmail;
-		console.log(email);
 		const allBrags = await pool.query("SELECT * FROM brags WHERE user_email = $1 ORDER BY created_at DESC", [email]);
 		res.json(allBrags.rows);
 	} catch (err) {
