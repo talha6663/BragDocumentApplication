@@ -1,21 +1,40 @@
 # BragBox
 
-A simple bragdoc system allowing you to help document accomplishments, goals, small wins or anything else that you might want to remember down the road.\
+A simple bragdoc system allowing you to help document accomplishments, goals, small wins or anything else that you might want to remember down the road.
+
+Developed using\
+- React
+- PostgreSQL database
+- Express server
+- Source Maps
+- Caching
 
 ## Development
 ### Install packages
-`
+```
 npm install
-`
+```
+change to the client directory
+```
+cd client
+```
 then install client packages
-`cd client` then `npm install`
+```
+npm install
+```
 
 ### Start api server
-`
+```
 npm run start
-`
+```
 ### Start react development
-`cd client` then `npm run start`
+```
+cd client
+```
+then 
+```
+npm run start
+```
 
 Runs the app in the development mode.\
 Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
@@ -25,10 +44,10 @@ You may also see any lint errors in the console.
 
 ## Production & Deployment
 Installs all packages
-`
+```
 npm run build
-`
+```
 Starts the server
-`
+```
 npm run server
-`
+```
