@@ -2,7 +2,7 @@
 
 A simple bragdoc system allowing you to help document accomplishments, goals, small wins or anything else that you might want to remember down the road.
 
-Developed using\
+Developed using
 - React
 - PostgreSQL database
 - Express server
