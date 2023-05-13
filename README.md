@@ -10,7 +10,8 @@ Developed using\
 - Caching
 
 ## Development
-### Install packages
+
+Install packages
 ```
 npm install
 ```
@@ -18,25 +19,25 @@ change to the client directory
 ```
 cd client
 ```
-then install client packages
+Install client packages
 ```
 npm install
 ```
-
-### Start api server
+\
+Start api server
 ```
 npm run start
 ```
-### Start react development
+Change to the client directory
 ```
 cd client
 ```
-then 
+Start react in development mode
 ```
 npm run start
 ```
 
-Runs the app in the development mode.\
+This runs the app in the development mode.\
 Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 
 The page will reload when you make changes.\
