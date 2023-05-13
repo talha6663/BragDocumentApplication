@@ -1,5 +1,5 @@
 {
-  "name": "bragbox-client",
+  "name": "bragbox",
   "version": "0.1.0",
   "private": true,
   "main": "index.js",
@@ -19,10 +19,7 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject",
-    "prod": "react-scripts build && npm run start --prefix api",
-    "server": "npm run start --prefix api",
-    "omg": "npm install && npm install --prefix api"
+    "eject": "react-scripts eject"
   },
   "eslintConfig": {
     "extends": [
