@@ -2,11 +2,20 @@
 
 A simple bragdoc system allowing you to help document accomplishments, goals, small wins or anything else that you might want to remember down the road.\
 
-### Available Scripts
+## Development
+### Install packages
+`
+npm install
+`
+then install client packages
+`cd client` then `npm install`
 
-In the project directory, you can run:
-
-### `npm start`
+### Start api server
+`
+npm run start
+`
+### Start react development
+`cd client` then `npm run start`
 
 Runs the app in the development mode.\
 Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
@@ -14,12 +23,12 @@ Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 The page will reload when you make changes.\
 You may also see any lint errors in the console.
 
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## Production & Deployment
+Installs all packages
+`
+npm run build
+`
+Starts the server
+`
+npm run server
+`
