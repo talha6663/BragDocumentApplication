@@ -59,7 +59,7 @@ const Navbar = () => {
                         </dialog>
 
                         <button className="nav_button no_border" onClick={openModal}>{user?.displayName}</button> 
-                        <img referrerPolicy="no-referrer" className="profilePicture" src={user?.photoURL} alt="pic" />
+                        <img referrerPolicy="no-referrer" className="profilePicture" src={user?.photoURL} onClick={openModal} alt="pic" />
                     </>
                 ) : (
                     <button className="nav_button" onClick={handleGoogleSignIn}>Sign In</button>

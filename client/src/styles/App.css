@@ -150,10 +150,16 @@ label {
 }
 .btn_transparent {
   background: transparent;
-  border: none;
+  border: 1px solid transparent;
   color: #3c576e;
   padding: 3px 0;
   margin: 0;
+  transition: 0.5s;
+}
+.btn_transparent:hover {
+  background: transparent;
+  border: 1px solid #3c576e;
+  color: #3c576e;
 }
 
 /* Brag cards */
@@ -266,10 +272,6 @@ dialog.modal .button_container .btn:last-child {
 
 /* Popups */
 dialog.popup {
-  /* display: flex;
-  flex-direction: column; */
-  /* align-items: center;
-  justify-content: center; */
   background: #f6f6f6;
   border: 4px solid #3c576e;
   border-radius: 6px;
@@ -279,12 +281,12 @@ dialog.popup .message {
   margin-bottom: 8px;
 }
 dialog.popup .btn_small {
-  margin: 0;
+  margin: 4px 0;
 }
 dialog.popup.signout {
-  position: absolute;
-  top: 55px;
-  left: 1080px;
+  position: relative;
+  top: 90px;
+  left: 180px;
 }
 dialog.popup button {
   display: block;
