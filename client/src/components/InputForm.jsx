@@ -55,12 +55,12 @@ const InputForm = (props) => {
 				<div>This is why you should always have a bragdoc on the go.  Here are some tips and suggestions.</div>
 				<ul>
 					<li>Document your goals and accomplishments.</li>
-					<li>Update it weekly or montly.</li>
 					<li>Your contributions to a project.</li>
 					<li>Little wins!</li>
+					<li>Anything you might need to remember.</li>
 					<li>Use comma separated tags to organize your brags.</li>
 				</ul>
-				<div>You can update it daily or weekly, just be sure to stay consistant.  Your career will thank you.</div>
+				<div>You can update it daily, weekly or monthly, just be sure to stay consistant.  Your career will thank you.</div>
 			</div>
 		</div>
     );

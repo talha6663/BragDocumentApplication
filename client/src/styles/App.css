@@ -30,10 +30,12 @@ body {
 
 .panel_left {
   width: 30%;
+  margin-top: 60px;
   padding-right: 8px;
 }
 .panel_right {
   width: 70%;
+  margin-top: 60px;
   padding-left: 40px;
 }
 h3 {
@@ -41,11 +43,16 @@ h3 {
 }
 
 /* Navbar */
+header {
+  position: fixed;
+  top: 0;
+  width: 100%;
+}
 nav {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  background: transparent;
+  background-color: rgba(255, 255, 255, 0.8);
   border-bottom: 1px solid #bcd2e4;
   color: #3c576e;
   height: 60px;

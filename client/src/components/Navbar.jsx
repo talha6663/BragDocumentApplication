@@ -47,25 +47,27 @@ const Navbar = () => {
     }, [user, navigate]);
 
     return (
-        <nav>
-            <div className="logo"><FaFile className="logo_icon" />BRAGBOX</div>
-            <div className="nav_rightSide">
-                {user?.displayName ? (
-                    <>
-                        <dialog ref={modalRef} className="popup signout">
-                            <div className="message">Signout out as {user?.displayName}?</div>
-                            <button className="btn btn_small" onClick={handleSignOut}>Sign Out</button>
-                            <button className="btn btn_small btn_transparent" onClick={closeModal}>Cancel</button>
-                        </dialog>
+        <header>
+            <nav>
+                <div className="logo"><FaFile className="logo_icon" />BRAGBOX</div>
+                <div className="nav_rightSide">
+                    {user?.displayName ? (
+                        <>
+                            <dialog ref={modalRef} className="popup signout">
+                                <div className="message">Sign out as {user?.displayName}?</div>
+                                <button className="btn btn_small" onClick={handleSignOut}>Sign Out</button>
+                                <button className="btn btn_small btn_transparent" onClick={closeModal}>Cancel</button>
+                            </dialog>
 
-                        <button className="nav_button no_border" onClick={openModal}>{user?.displayName}</button> 
-                        <img referrerPolicy="no-referrer" className="profilePicture" src={user?.photoURL} onClick={openModal} alt="pic" />
-                    </>
-                ) : (
-                    <button className="nav_button" onClick={handleGoogleSignIn}>Sign In</button>
-                )}
-            </div>
-        </nav>
+                            <button className="nav_button no_border" onClick={openModal}>{user?.displayName}</button> 
+                            <img referrerPolicy="no-referrer" className="profilePicture" src={user?.photoURL} onClick={openModal} alt="pic" />
+                        </>
+                    ) : (
+                        <button className="nav_button" onClick={handleGoogleSignIn}>Sign In</button>
+                    )}
+                </div>
+            </nav>
+        </header>
     );
 };
 
