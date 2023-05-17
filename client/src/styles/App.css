@@ -148,6 +148,13 @@ label {
   margin-left: 6px;
   min-width: 80px;
 }
+.btn_transparent {
+  background: transparent;
+  border: none;
+  color: #3c576e;
+  padding: 3px 0;
+  margin: 0;
+}
 
 /* Brag cards */
 .brag_card {
@@ -235,24 +242,51 @@ label {
 dialog::backdrop {
   background-color: rgba(0, 0, 0, 0.8);
 }
-dialog {
+dialog.modal {
   background: #f6f6f6;
   border: 8px solid #3c576e;
   border-radius: 6px;
   padding: 20px;
   width: 500px;
 }
-dialog label, dialog textarea {
+dialog.modal label, dialog.modal textarea {
   display: block;
 }
-dialog .button_container {
+dialog.modal .button_container {
   display: flex;
   justify-content: space-between;
 }
-dialog .button_container .btn {
+dialog.modal .button_container .btn {
   width: 100%;
   margin-right: 6px;
 }
-dialog .button_container .btn:last-child {
+dialog.modal .button_container .btn:last-child {
   margin-right: 0;
+}
+
+/* Popups */
+dialog.popup {
+  /* display: flex;
+  flex-direction: column; */
+  /* align-items: center;
+  justify-content: center; */
+  background: #f6f6f6;
+  border: 4px solid #3c576e;
+  border-radius: 6px;
+  text-align: center;
+}
+dialog.popup .message {
+  margin-bottom: 8px;
+}
+dialog.popup .btn_small {
+  margin: 0;
+}
+dialog.popup.signout {
+  position: absolute;
+  top: 55px;
+  left: 1080px;
+}
+dialog.popup button {
+  display: block;
+  width: 100%;
 }

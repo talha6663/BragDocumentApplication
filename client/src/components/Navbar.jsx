@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useRef } from 'react';
 import { FaFile } from "react-icons/fa";
 import { useNavigate } from 'react-router-dom';
 import { UserAuth } from '../context/AuthContext';
@@ -7,6 +7,7 @@ const Navbar = () => {
     const {googleSignIn} = UserAuth();
     const {user, logout} = UserAuth();
     const navigate = useNavigate();
+    const modalRef = useRef(null);
 
     const handleSignOut = async () => {
         try {
@@ -23,6 +24,21 @@ const Navbar = () => {
             console.error(error)
         }
     }
+
+    const openModal = () => {
+		const modal = modalRef.current;
+		if (modal) {
+			modal.close();
+			modal.show();
+		}
+	};
+
+	const closeModal = () => {
+		const modal = modalRef.current;
+		if (modal) {
+			modal.close();
+		}
+	};
     
     useEffect(() => {
         if (user != null) {
@@ -36,7 +52,13 @@ const Navbar = () => {
             <div className="nav_rightSide">
                 {user?.displayName ? (
                     <>
-                        <button className="nav_button no_border" onClick={handleSignOut}>Sign Out - {user?.displayName}</button> 
+                        <dialog ref={modalRef} className="popup signout">
+                            <div className="message">Signout out as {user?.displayName}?</div>
+                            <button className="btn btn_small" onClick={handleSignOut}>Sign Out</button>
+                            <button className="btn btn_small btn_transparent" onClick={closeModal}>Cancel</button>
+                        </dialog>
+
+                        <button className="nav_button no_border" onClick={openModal}>{user?.displayName}</button> 
                         <img referrerPolicy="no-referrer" className="profilePicture" src={user?.photoURL} alt="pic" />
                     </>
                 ) : (

@@ -43,7 +43,7 @@ const EditBrag = ({item, refreshList}) => {
         <>
 			<FaEdit className="icon" title="Edit Brag" onClick={openModal} />
 
-            <dialog ref={modalRef}>
+            <dialog ref={modalRef} className="modal">
 				<label htmlFor="brag">Brag about what you've done!</label>
                 <textarea className="form_element" rows="10" value={brag} onChange={(e) => setBrag(e.target.value)} />
 				<label htmlFor="tags">Tags - Comma separated if multiple</label>
