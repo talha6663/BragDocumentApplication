@@ -10,8 +10,18 @@ const InputForm = (props) => {
 
 	const onSubmitForm = async (e) => {
 		e.preventDefault();
+
+		const date = new Date();
+		let minutes = date.getMinutes();
+		let hour = date.getHours();
+		let day = date.getDate();
+		let month = date.getMonth() + 1;
+		let year = date.getFullYear();
+		let currentDate = `${year}-${month}-${day}`;
+		let currentTime = `${hour}:${minutes}:00`;
+
 		try {
-			const body = { brag, tags, userEmail };
+			const body = { brag, tags, userEmail, currentDate, currentTime };
 			await fetch(`${process.env.REACT_APP_API_URL}/brags`, {
 				method: 'POST',
 				headers: { 'Content-Type': 'application/json' },

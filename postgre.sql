@@ -1,10 +1,9 @@
 CREATE TABLE brags(
    brag_id SERIAL PRIMARY KEY,
-   user_id int NOT NULL,
    user_email VARCHAR NOT NULL,
-   title VARCHAR,
    brag TEXT,
    tags VARCHAR(255)[],
-   created_at TIMESTAMP NOT NULL DEFAULT NOW(),
-   updated_at TIMESTAMP NOT NULL DEFAULT NOW()
+   created_date DATE NOT NULL,
+   created_time TIME NOT NULL,
+   created_at TIMESTAMPTZ NOT NULL DEFAULT NOW()
 );

@@ -17,14 +17,14 @@ app.use(express.static("./client/build"));
 // Create
 app.post("/brags", async (req, res) => {
 	try {
-		const user_id = 815138;
+		const date = req.body.currentDate;
+		const time = req.body.currentTime;
 		const email = req.body.userEmail;
-		const title = "Default title";
 		const brag = req.body.brag;
 		const tags = req.body.tags.split(",");
 
 		if (brag !== "") {
-			const newBrag = await pool.query("INSERT INTO brags (user_id, user_email, title, brag, tags) VALUES ($1, $2, $3, $4, $5) RETURNING *", [user_id, email, title, brag, tags]);
+			const newBrag = await pool.query("INSERT INTO brags (created_date, created_time, user_email, brag, tags) VALUES ($1, $2, $3, $4, $5) RETURNING *", [date, time, email, brag, tags]);
 			res.json(newBrag.rows[0]);
 		}
 	} catch (err) {
@@ -36,7 +36,7 @@ app.post("/brags", async (req, res) => {
 app.get("/brags", async (req, res) => {
 	try {
 		const email = req.query.userEmail;
-		const allBrags = await pool.query("SELECT * FROM brags WHERE user_email = $1 ORDER BY created_at DESC", [email]);
+		const allBrags = await pool.query("SELECT * FROM brags WHERE user_email = $1 ORDER BY created_date DESC, created_time DESC", [email]);
 		res.json(allBrags.rows);
 	} catch (err) {
 		console.error(err.message);
@@ -52,8 +52,10 @@ app.put("/brags/:id", async (req, res) => {
 
 		if (tags.length === 1) {
 			tags = req.body.tags;
-		} else {
+		} else if (tags.length > 1) {
 			tags = req.body.tags.split(",");
+		} else {
+			tags = [];
 		}
 
 		await pool.query("UPDATE brags SET brag = $1, tags = $2 WHERE brag_id = $3", [brag, tags, id]);

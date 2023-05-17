@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useCallback, useEffect, useState } from 'react';
 import { FaTrash } from "react-icons/fa";
 import { UserAuth } from '../context/AuthContext';
 import EditBrag from './EditBrag';
@@ -8,66 +8,136 @@ const ListBrags = (props) => {
     const [brags, setBrags] = useState([]);
     const {user} = UserAuth();
 
-    const getBrags = async (email) => {
+	const getBrags = useCallback(async (email) => {
 		try {
-			const response = await fetch(`${process.env.REACT_APP_API_URL}/brags?userEmail=${email}`);
+			const response = await fetch(
+				`${process.env.REACT_APP_API_URL}/brags?userEmail=${email}`
+			);
 			const jsonData = await response.json();
 
-			setBrags(jsonData);
+			let bragsObject = {};
+			jsonData.forEach(function (arrayItem) {
+				const date = arrayItem.created_date;
+				const {brag_id, brag, tags, created_time} = arrayItem;
+
+				if (bragsObject[date] && bragsObject[date].length > 0) {
+					bragsObject[date].push({brag_id, brag, tags, created_time});
+					bragsObject[date].tags = bragsObject[date].tags.concat(tags);
+				} else {
+					bragsObject[date] = [{brag_id, brag, tags, created_time}];
+					bragsObject[date].tags = [].concat(tags);
+				}
+			});
+
+			setBrags(bragsObject);
 		} catch (err) {
 			console.error(err.message);
 		}
-	};
+	}, [setBrags]);
 
-    const deleteBrag = async (id) => {
+	const deleteBrag = async (id) => {
 		try {
 			await fetch(`${process.env.REACT_APP_API_URL}/brags/${id}`, {
 				method: 'DELETE',
 			});
 
-			setBrags(brags.filter((brag) => brag.brag_id !== id));
+			// Create a copy of the brags state object
+			const updatedBrags = {...brags};
+
+			// Loop through each date key in the object
+			Object.keys(updatedBrags).forEach(date => {
+				// Filter out the deleted brag from the array for the current date as well as tags
+				updatedBrags[date] = updatedBrags[date].filter(brag => brag.brag_id !== id);
+				updatedBrags[date].tags = updatedBrags[date].map((brag) => brag.tags).flat();
+			});
+
+			// Update the state with the updated object
+			setBrags(updatedBrags);
 		} catch (err) {
 			console.error(err.message);
 		}
 	};
 
-    useEffect(() => {
-		getBrags(user.email);
-	}, [props.toggleRefreshList, user.email]);
+	function formatDate(dateString) {
+		const date = new Date(dateString);
+		const monthNames = [
+			"January", "February", "March", "April", "May", "June", "July", 
+			"August", "September", "October", "November", "December"
+		];
+		const monthIndex = date.getMonth();
+		const day = date.getDate();
+		const year = date.getFullYear();
 
-    // Formats the date
-    function formatDate(dateString) {
-        const date = new Date(dateString);
-        const options = { month: 'short', day: 'numeric', year: 'numeric', hour: 'numeric', minute: 'numeric' };
-        const formattedDate = date.toLocaleDateString('en-US', options).replace(',', '');
-        return formattedDate;
-    }
+		return `${monthNames[monthIndex]} ${day} ${year}`;
+	}
+
+	function changeTimeFormat(time) {
+		const parts = time.split(":");
+		let hours = parseInt(parts[0]);
+		const minutes = parts[1];
+
+		// Adjust hours for 12 hr format
+		const meridiem = hours >= 12 ? "PM" : "AM";
+		hours %= 12;
+		hours = hours || 12;
+
+		// Add leading zero if hours is a single digit
+		const formattedHours = hours < 10 ? "0" + hours : hours;
+
+		return formattedHours + ":" + minutes + " " + meridiem;
+	}
 
     // Takes the tags array, styles and cleans each element
-    function formatTags(arr) {
-        const str = arr.map(element => `<span>${element.trim()}</span>`).join('');
-        return <div dangerouslySetInnerHTML={{__html: str}}></div>;
-    }
+	function tagBuilder(arr) {
+		if (!Array.isArray(arr)) {
+			return null;
+		}
 
-    return (
-        <div className="panel_right">
+		const uniqueTags = new Set();
+		const formattedTags = arr.map((element, index) => {
+			if (element) {
+				const trimmedTag = element.trim();
+				if (!uniqueTags.has(trimmedTag)) {
+					uniqueTags.add(trimmedTag);
+					return <span key={index}>{trimmedTag}</span>;
+				}
+			}
+			return null;
+		});
 
-            {brags.map((item) => (
-                <div key={item.brag_id} className="brag_card">
-                    <div className="card_header">
-                        <div className="date">{formatDate(item.created_at)}</div>
-                        <div>
-                            <EditBrag item={item} refreshList={props.toggleRefreshList} />
-                            <FaTrash className="icon" title="Delete" onClick={() => deleteBrag(item.brag_id)} />
-                        </div>
-                    </div>
-                    <div className="brag_text">{item.brag}</div>
-                    <div className="tags_wrapper">TAGS {formatTags(item.tags)}</div>
-                </div>
-            ))}
+		return formattedTags;
+	}
 
-        </div>
-    );
+	useEffect(() => {
+		getBrags(user.email);
+	}, [props.toggleRefreshList, user.email, getBrags]);
+
+	return (
+		<div className="panel_right">
+			{Object.keys(brags).map((date, index) => (
+				<div key={index} className="brag_card">
+					<div className="date">{formatDate(date)}</div>
+					<ul>
+						{brags[date].map((bragItem, index) => {
+							const {brag_id, brag, created_time} = bragItem;
+							return (
+								<li key={brag_id}>
+									<div className="time">{changeTimeFormat(created_time)}</div> 
+									<div className="brag_text">{brag}</div>
+									<div className="controls">
+										<EditBrag item={bragItem} refreshList={props.toggleRefreshList} />
+										<FaTrash className="icon" title="Delete" onClick={() => deleteBrag(brag_id)} />
+									</div>
+								</li>
+							);
+						})}
+					</ul>
+
+					<div className="tags_wrapper">{tagBuilder(brags[date].tags)}</div>
+				</div>
+			))}
+		</div>
+	);
 };
 
 export default ListBrags;

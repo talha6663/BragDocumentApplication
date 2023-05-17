@@ -149,58 +149,86 @@ label {
   min-width: 80px;
 }
 
-.icon {
-  width: 14px;
-  height: 14px;
-  cursor: pointer;
-  color: #9c9c9c;
-  margin-left: 12px;
-}
-.icon:hover {
-  color: #3c576e;
-}
-
 /* Brag cards */
-.brag_card .date {
-  margin: 0px;
-  font-size:0.8rem;
-  font-weight: 600;
-  color: #909090;
-  font-style: italic;
-}
 .brag_card {
-  background: #f6f6f6;
-  border-bottom: 1px solid #dadada;
+  background: transparent;
   white-space: pre-line;
-  padding: 10px;
+  margin-bottom: 12px;
 }
-.brag_card:last-child {
-  border-bottom: 0;
+.brag_card .date {
+  background: #3c576e;
+  border-radius: 6px;
+  margin: 0px;
+  padding: 4px 10px;
+  font-size: 1.5rem;
+  font-weight: 900;
+  color: #f6f6f6;
+  text-transform: uppercase;
+  letter-spacing: 1px;
 }
-.brag_card .card_header {
+.brag_card ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.brag_card li {
   display: flex;
-  align-items: center;
-  justify-content: space-between;
+  align-items: stretch;
+  padding: 0 12px;
+}
+.brag_card li:hover {
+  background: #dce0e5;
+  border-radius: 6px;
+}
+.brag_card .time {
+  font-weight: 600;
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  color: #909090;
+  margin-right: 12px;
+  white-space: nowrap;
+  padding-top: 4px;
 }
 .brag_text {
   font-size: 1rem;
   font-weight: 400;
   margin: 2px 0;
+  text-align: left;
 }
-.tags_wrapper {
+.brag_card .controls {
+  margin-left: auto;
+  white-space: nowrap;
+  padding-top: 4px;
+}
+.brag_card .controls .icon {
+  width: 14px;
+  height: 14px;
+  cursor: pointer;
+  color: #f6f6f6;
+  margin-left: 10px;
+}
+.brag_card li:hover .controls .icon {
+  color: #3c576e !important;
+}
+.brag_card .tags_wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: 4px;
+  margin-left: 6px;
+}
+.brag_card .tags_wrapper span {
   display: flex;
   align-items: center;
-  font-size: 0.75rem;
-  color: #9c9c9c;
-  margin-top: 10px;
-}
-.tags_wrapper span {
   background: #bcd2e4;
-  border-radius: 50px;
+  border: 1px solid #97a7b4;
+  border-radius: 6px;
   font-weight: 400;
-  color: #333;
-  padding: 1px 12px;
+  font-size: 0.75rem;
+  color: #3c576e;
+  padding: 2px 12px;
   margin-left: 6px;
+  margin-bottom: 2px;
+  cursor: pointer;
 }
 
 /* Modals */
@@ -209,10 +237,13 @@ dialog::backdrop {
 }
 dialog {
   background: #f6f6f6;
-  border: 2px solid #bcd2e4;
+  border: 8px solid #3c576e;
   border-radius: 6px;
   padding: 20px;
   width: 500px;
+}
+dialog label, dialog textarea {
+  display: block;
 }
 dialog .button_container {
   display: flex;

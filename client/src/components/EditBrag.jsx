@@ -4,7 +4,7 @@ import { FaEdit } from "react-icons/fa";
 const EditBrag = ({item, refreshList}) => {
 
     const [brag, setBrag] = useState(item.brag);
-	const [tags, setTags] = useState(item.tags);
+	const [tags, setTags] = useState(item.tags || []);
     const modalRef = useRef(null);
 
     const updateBrag = async (e) => {
@@ -16,7 +16,7 @@ const EditBrag = ({item, refreshList}) => {
 				headers: { 'Content-Type': 'application/json' },
 				body: JSON.stringify(body),
 			});
-
+ 
 			refreshList();
 			closeModal();
 		} catch (err) {
