@@ -12,13 +12,14 @@ const InputForm = (props) => {
 		e.preventDefault();
 
 		const date = new Date();
-		let minutes = date.getMinutes();
-		let hour = date.getHours();
-		let day = date.getDate();
-		let month = date.getMonth() + 1;
 		let year = date.getFullYear();
+		let month = date.getMonth() + 1;
+		let day = date.getDate();
+		let hour = date.getHours();
+		let minutes = date.getMinutes();
+		let seconds = date.getSeconds();
 		let currentDate = `${year}-${month}-${day}`;
-		let currentTime = `${hour}:${minutes}:00`;
+		let currentTime = `${hour}:${minutes}:${seconds}`;
 
 		try {
 			const body = { brag, tags, userEmail, currentDate, currentTime };
