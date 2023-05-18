@@ -136,7 +136,7 @@ const ListBrags = (props) => {
 		<div className="panel_right">
 			{Object.keys(brags).map((date, index) => (
 				<div key={index} className="brag_card">
-					<div className="date">{formatDate(date)}</div>
+					<div className="date">{date}</div>
 					<ul>
 						{brags[date].map((bragItem, index) => {
 							const {brag_id, brag, created_time} = bragItem;
