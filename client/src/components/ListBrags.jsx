@@ -82,14 +82,26 @@ const ListBrags = (props) => {
 	// }
 	function formatDate(dateString) {
 		const date = new Date(dateString);
-		const options = {
-		  month: "long",
-		  day: "numeric",
-		  year: "numeric",
-		  timeZone: Intl.DateTimeFormat().resolvedOptions().timeZone
-		};
-		return date.toLocaleDateString(undefined, options).replace(",", "");
+		const monthNames = [
+		  "January", "February", "March", "April", "May", "June", "July", 
+		  "August", "September", "October", "November", "December"
+		];
+		const monthIndex = date.getUTCMonth();
+		const day = date.getUTCDate();
+		const year = date.getUTCFullYear();
+	  
+		return `${monthNames[monthIndex]} ${day} ${year}`;
 	  }
+	// function formatDate(dateString) {
+	// 	const date = new Date(dateString);
+	// 	const options = {
+	// 	  month: "long",
+	// 	  day: "numeric",
+	// 	  year: "numeric",
+	// 	  timeZone: Intl.DateTimeFormat().resolvedOptions().timeZone
+	// 	};
+	// 	return date.toLocaleDateString(undefined, options).replace(",", "");
+	//   }
 
 	function changeTimeFormat(time) {
 		const parts = time.split(":");
@@ -136,7 +148,7 @@ const ListBrags = (props) => {
 		<div className="panel_right">
 			{Object.keys(brags).map((date, index) => (
 				<div key={index} className="brag_card">
-					<div className="date">{date}</div>
+					<div className="date">{formatDate(date)}</div>
 					<ul>
 						{brags[date].map((bragItem, index) => {
 							const {brag_id, brag, created_time} = bragItem;
