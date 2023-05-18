@@ -43,7 +43,7 @@ app.get("/brags", async (req, res) => {
 	}
 });
 
-// Read
+// Search
 app.get("/search", async (req, res) => {
 	try {
 		const email = req.query.useremail;
@@ -52,7 +52,7 @@ app.get("/search", async (req, res) => {
 		// Add wildcards around the search parameter
 		const searchPattern = `%${search}%`;
 
-		const allBrags = await pool.query("SELECT * FROM brags WHERE user_email = $1 AND brag LIKE $2 ORDER BY created_date DESC, created_time DESC", [email, searchPattern]);
+		const allBrags = await pool.query("SELECT * FROM brags WHERE user_email = $1 AND brag ILIKE $2 ORDER BY created_date DESC, created_time DESC", [email, searchPattern]);
 		res.json(allBrags.rows);
 	} catch (err) {
 		console.error(err.message);

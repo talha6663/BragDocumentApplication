@@ -318,7 +318,7 @@ dialog.popup .btn_small {
 dialog.popup.signout {
   position: relative;
   top: 90px;
-  left: 180px;
+  left: 625px;
 }
 dialog.popup button {
   display: block;
