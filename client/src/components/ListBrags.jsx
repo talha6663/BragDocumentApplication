@@ -68,18 +68,28 @@ const ListBrags = (props) => {
 		}
 	};
 
+	// function formatDate(dateString) {
+	// 	const date = new Date(dateString);
+	// 	const monthNames = [
+	// 		"January", "February", "March", "April", "May", "June", "July", 
+	// 		"August", "September", "October", "November", "December"
+	// 	];
+	// 	const monthIndex = date.getMonth();
+	// 	const day = date.getDate();
+	// 	const year = date.getFullYear();
+
+	// 	return `${monthNames[monthIndex]} ${day} ${year}`;
+	// }
 	function formatDate(dateString) {
 		const date = new Date(dateString);
-		const monthNames = [
-			"January", "February", "March", "April", "May", "June", "July", 
-			"August", "September", "October", "November", "December"
-		];
-		const monthIndex = date.getMonth();
-		const day = date.getDate();
-		const year = date.getFullYear();
-
-		return `${monthNames[monthIndex]} ${day} ${year}`;
-	}
+		const options = {
+		  month: "long",
+		  day: "numeric",
+		  year: "numeric",
+		  timeZone: Intl.DateTimeFormat().resolvedOptions().timeZone
+		};
+		return date.toLocaleDateString(undefined, options).replace(",", "");
+	  }
 
 	function changeTimeFormat(time) {
 		const parts = time.split(":");
