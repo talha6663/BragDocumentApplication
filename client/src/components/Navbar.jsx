@@ -81,18 +81,17 @@ const Navbar = (props) => {
             <nav>
                 <div className="logo"><FaFile className="logo_icon" />BRAGBOX</div>
                 <div className="nav_rightSide">
-                    <dialog ref={modalRef} className="popup signout">
-                        <div className="message">Sign out as {user?.displayName}?</div>
-                        <button className="btn btn_small" onClick={handleSignOut}>Sign Out</button>
-                        <button className="btn btn_small btn_transparent" onClick={closeModal}>Cancel</button>
-                    </dialog>
-                    <div className="navbar_search">
-                        <input type="text" value={searchValue} onChange={handleChange} onKeyUp={handleKeyUp} placeholder="Search" />
-                        <AiOutlineSearch onClick={search} className="search_icon" title="Search" alt="search" />
-                    </div>
                     {user?.displayName ? (
                         <>
-                            
+                            <dialog ref={modalRef} className="popup signout">
+                                <div className="message">Sign out as {user?.displayName}?</div>
+                                <button className="btn btn_small" onClick={handleSignOut}>Sign Out</button>
+                                <button className="btn btn_small btn_transparent" onClick={closeModal}>Cancel</button>
+                            </dialog>
+                            <div className="navbar_search">
+                                <input type="text" value={searchValue} onChange={handleChange} onKeyUp={handleKeyUp} placeholder="Search" />
+                                <AiOutlineSearch onClick={search} className="search_icon" title="Search" alt="search" />
+                            </div>
 
                             <button className="nav_button no_border" onClick={openModal}>{user?.displayName}</button> 
                             <img referrerPolicy="no-referrer" className="profilePicture" src={user?.photoURL} onClick={openModal} alt="pic" />
