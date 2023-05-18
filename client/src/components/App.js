@@ -1,7 +1,6 @@
 import { Route, Routes } from "react-router-dom";
 import { AuthContextProvider } from "../context/AuthContext";
 import "../styles/App.css";
-import Navbar from "./Navbar";
 import ParentComponent from "./ParentComponent";
 import Protected from "./Protected";
 import Welcome from "./Welcome";
@@ -9,7 +8,6 @@ import Welcome from "./Welcome";
 function App() {
 	return (
 		<AuthContextProvider>
-			<Navbar />
 			<div className="App">
 				<Routes>
 					<Route exact path="/" element={<Welcome />} />

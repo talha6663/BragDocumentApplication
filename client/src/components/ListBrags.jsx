@@ -10,10 +10,18 @@ const ListBrags = (props) => {
 
 	const getBrags = useCallback(async (email) => {
 		try {
+			let jsonData = [];
 			const response = await fetch(
 				`${process.env.REACT_APP_API_URL}/brags?userEmail=${email}`
 			);
-			const jsonData = await response.json();
+			// const jsonData = await response.json();
+			// console.log(props.jsonData);
+			if (props.jsonData) {
+				jsonData = props.jsonData;
+			} else {
+				jsonData = await response.json();
+			}
+			
 
 			let bragsObject = {};
 			jsonData.forEach(function (arrayItem) {
@@ -33,7 +41,9 @@ const ListBrags = (props) => {
 		} catch (err) {
 			console.error(err.message);
 		}
-	}, [setBrags]);
+	}, [setBrags, props.jsonData]);
+
+	
 
 	const deleteBrag = async (id) => {
 		try {
@@ -110,7 +120,7 @@ const ListBrags = (props) => {
 
 	useEffect(() => {
 		getBrags(user.email);
-	}, [props.toggleRefreshList, user.email, getBrags]);
+	}, [props.toggleRefreshList, user.email, getBrags, props.jsonData]);
 
 	return (
 		<div className="panel_right">

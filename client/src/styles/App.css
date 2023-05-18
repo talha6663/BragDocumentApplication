@@ -25,17 +25,18 @@ body {
 .App {
   display: flex;
   justify-content: stretch;
-  margin: 20px 80px;
 }
 
 .panel_left {
   width: 30%;
-  margin-top: 60px;
+  margin-top: 80px;
+  margin-left: 80px;
   padding-right: 8px;
 }
 .panel_right {
   width: 70%;
-  margin-top: 60px;
+  margin-top: 80px;
+  margin-right: 80px;
   padding-left: 40px;
 }
 h3 {
@@ -87,7 +88,7 @@ nav .nav_button.no_border {
   border: none;
   margin-right: 4px;
 }
-.nav_rightSide {
+nav .nav_rightSide {
   display: flex;
   align-items: center;
   justify-content: flex-end;
@@ -98,6 +99,30 @@ nav .nav_rightSide .profilePicture {
   width: 40px;
   height: 40px;
   object-fit: cover;
+}
+nav .navbar_search {
+  display: flex;
+  align-items: center;
+  background: #fff;
+  border: 2px solid #bcd2e4;
+  border-radius: 50px;
+  margin-right: 25px;
+}
+nav .navbar_search input {
+  background: transparent;
+  border: none;
+  font-family: inherit;
+  color: #373F46;
+  font-size: 1rem;
+  width: 400px;
+  padding: 4px 12px;
+}
+nav .navbar_search .search_icon {
+  width: 24px;
+  height: 24px;
+  color: #3c576e;
+  cursor: pointer;
+  margin-right: 8px;
 }
 
 /* Form stuff */
