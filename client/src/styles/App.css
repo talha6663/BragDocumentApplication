@@ -2,9 +2,19 @@
 
 :root {
   font-size: 16px;
+  --bg-color: #f6f6f6;
   --color1: #ae8b2b;
   --color2: #1c1e20;
   --color3: #c4ab65;
+}
+[data-theme=light] {
+  --bg-color: #f6f6f6;
+  --pri-font-color: var(--color1);
+}
+
+[data-theme=dark] {
+  --bg-color: #16181f;
+  --pri-font-color: white;
 }
 
 *,
@@ -17,14 +27,14 @@ html,
 body {
   font-family: 'Source Sans Pro', sans-serif;
   font-weight: 400;
-  background: #f6f6f6;
-  color: #373F46;
   margin: 0;
 }
 
 .App {
   display: flex;
   justify-content: stretch;
+  background: var(--bg-color);
+  color: var(--pri-font-color);
 }
 
 .panel_left {
@@ -184,7 +194,7 @@ label {
   background: transparent;
   border: 1px solid transparent;
   color: #3c576e;
-  padding: 3px 0;
+  /* padding: 3px 0; */
   margin: 0;
   transition: 0.5s;
 }

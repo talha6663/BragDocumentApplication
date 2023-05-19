@@ -1,7 +1,8 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useContext, useEffect, useRef, useState } from 'react';
 import { AiOutlineSearch } from "react-icons/ai";
 import { FaFile } from "react-icons/fa";
 import { useNavigate } from 'react-router-dom';
+import { ThemeContext } from "../Theme";
 import { UserAuth } from '../context/AuthContext';
 
 const Navbar = (props) => {
@@ -10,6 +11,7 @@ const Navbar = (props) => {
     const navigate = useNavigate();
     const modalRef = useRef(null);
     const [searchValue, setSearchValue] = useState('');
+    const { theme, toggleTheme } = useContext(ThemeContext);
 
     const handleSignOut = async () => {
         try {
@@ -69,6 +71,7 @@ const Navbar = (props) => {
             console.error(error.message);
         }
     };
+
     
     useEffect(() => {
         if (user != null) {
@@ -84,7 +87,7 @@ const Navbar = (props) => {
                     {user?.displayName ? (
                         <>
                             <dialog ref={modalRef} className="popup signout">
-                                <div className="message">Sign out as {user?.displayName}?</div>
+                                <div className="message">Sign out of account {user?.displayName}?</div>
                                 <button className="btn btn_small" onClick={handleSignOut}>Sign Out</button>
                                 <button className="btn btn_small btn_transparent" onClick={closeModal}>Cancel</button>
                             </dialog>
@@ -92,6 +95,7 @@ const Navbar = (props) => {
                                 <input type="text" value={searchValue} onChange={handleChange} onKeyUp={handleKeyUp} placeholder="Search" />
                                 <AiOutlineSearch onClick={search} className="search_icon" title="Search" alt="search" />
                             </div>
+                            <button onClick={() => toggleTheme()} className="btn btn_small" data-theme={theme === "dark-theme" ? "dark" : "light"}>{theme}</button>
 
                             <button className="nav_button no_border" onClick={openModal}>{user?.displayName}</button> 
                             <img referrerPolicy="no-referrer" className="profilePicture" src={user?.photoURL} onClick={openModal} alt="pic" />
