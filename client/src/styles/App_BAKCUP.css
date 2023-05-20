@@ -2,48 +2,19 @@
 
 :root {
   font-size: 16px;
-  --pri-font-family: 'Source Sans Pro', sans-serif;
   --bg-color: #f6f6f6;
-  --color1: #f6f6f6;
-  --color2: #16181f;
-  --color3: #bcd2e4;
-  --color4: #373F46;
-  --color5: #3c576e;
-  --nav-item-spacing: 30px;
+  --color1: #ae8b2b;
+  --color2: #1c1e20;
+  --color3: #c4ab65;
 }
 [data-theme=light] {
-  --bg-color: var(--color1);
-  --pri-font-color: var(--color2);
-  --nav-bg-color: rgba(255, 255, 255, 0.8);
-  --nav-border-color: var(--color3);
-  --nav-font-color: var(--color5);
-  --nav-search-bg-color: var(--color1);
-  --nav-search-border-color: var(--color3);
-  --nav-search-icon-color: var(--color5);
-  --nav-search-font-color: var(--color4);
-  --nav-search-placeholder-font-color: var(--color4);
-  --form-ele-border-color: var(--color3);
-  --form-ele-bg-color: var(--color1);
-  --form-ele-font-color: var(--color4);
-  --form-label-font-color: var(--color4);
-  --card-bg-hover-color: var(--color3);
-}
-[data-theme=dark] {
-  --bg-color: var(--color2);
+  --bg-color: #f6f6f6;
   --pri-font-color: var(--color1);
-  --nav-bg-color: rgba(22, 24, 31, 0.8);
-  --nav-border-color: var(--color4);
-  --nav-font-color: var(--color3);
-  --nav-search-bg-color: var(--color5);
-  --nav-search-border-color: var(--color5);
-  --nav-search-icon-color: var(--color3);
-  --nav-search-font-color: var(--color1);
-  --nav-search-placeholder-font-color: var(--color1);
-  --form-ele-border-color: var(--color3);
-  --form-ele-bg-color: var(--color2);
-  --form-ele-font-color: var(--color3);
-  --form-label-font-color: var(--color4);
-  --card-bg-hover-color: var(--color5);
+}
+
+[data-theme=dark] {
+  --bg-color: #16181f;
+  --pri-font-color: white;
 }
 
 *,
@@ -54,7 +25,7 @@
 
 html,
 body {
-  font-family: var(--pri-font-family);
+  font-family: 'Source Sans Pro', sans-serif;
   font-weight: 400;
   margin: 0;
 }
@@ -92,62 +63,20 @@ nav {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  background-color: var(--nav-bg-color);
-  border-bottom: 1px solid var(--nav-border-color);
-  color: var(--nav-font-color);
+  background-color: rgba(255, 255, 255, 0.8);
+  border-bottom: 1px solid #bcd2e4;
+  color: #3c576e;
   height: 60px;
   padding: 0 80px;
-}
-nav .logo .logo_icon {
-  font-size: 1.4rem;
-  color: #8a98a4;
 }
 nav .logo {
   font-weight: 900;
   font-size: 2rem;
   letter-spacing: -2px;
 }
-nav .nav_rightSide {
-  display: flex;
-  align-items: center;
-  /* justify-content: flex-end; */
-}
-nav .navbar_search {
-  display: flex;
-  align-items: center;
-  background: var(--nav-search-bg-color);
-  border: 2px solid var(--nav-search-border-color);
-  border-radius: 50px;
-  padding: 0;
-}
-nav .navbar_search input {
-  background: transparent;
-  border: none;
-  font-family: inherit;
-  color: var(--nav-search-font-color);
-  font-size: 1rem;
-  width: 400px;
-  padding: 4px 12px;
-}
-nav .navbar_search input::placeholder {
-  color: var(--nav-search-placeholder-font-color);
-}
-nav .navbar_search .search_icon {
-  width: 24px;
-  height: 24px;
-  color: var(--nav-search-icon-color);
-  cursor: pointer;
-  margin-right: 8px;
-}
-nav .btn_theme {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  /* border: 1px solid red; */
-  /* border-radius: 6px; */
-  margin-left: var(--nav-item-spacing);
-  padding: 0;
-  cursor: pointer;
+nav .logo .logo_icon {
+  font-size: 1.4rem;
+  color: #8a98a4;
 }
 nav .nav_button {
   background: transparent;
@@ -155,11 +84,10 @@ nav .nav_button {
   border-radius: 8px;
   font-size: 0.9rem;
   font-weight: 400;
-  color: var(--nav-font-color);;
+  color: #3c576e;
   padding: 8px;
   transition: 0.4s;
   cursor: pointer;
-  margin-left: var(--nav-item-spacing);
 }
 nav .nav_button:hover {
   background: #ececec;
@@ -168,15 +96,43 @@ nav .nav_button:hover {
 nav .nav_button.no_border {
   background: transparent;
   border: none;
-  padding: 0;
+  margin-right: 4px;
+}
+nav .nav_rightSide {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
 }
 nav .nav_rightSide .profilePicture {
-  border: 2px solid #6b6b6b;
+  border: 1px solid #6b6b6b;
   border-radius: 50%;
   width: 40px;
   height: 40px;
   object-fit: cover;
-  margin-left: 8px;
+}
+nav .navbar_search {
+  display: flex;
+  align-items: center;
+  background: #fff;
+  border: 2px solid #bcd2e4;
+  border-radius: 50px;
+  margin-right: 25px;
+}
+nav .navbar_search input {
+  background: transparent;
+  border: none;
+  font-family: inherit;
+  color: #373F46;
+  font-size: 1rem;
+  width: 400px;
+  padding: 4px 12px;
+}
+nav .navbar_search .search_icon {
+  width: 24px;
+  height: 24px;
+  color: #3c576e;
+  cursor: pointer;
+  margin-right: 8px;
 }
 
 /* Form stuff */
@@ -195,11 +151,11 @@ textarea:focus, input:focus, button:focus {
   outline: none;
 }
 .form_element {
-  background: var(--form-ele-bg-color);
-  border: 2px solid var(--form-ele-border-color);
+  background: #f6f6f6;
+  border: 2px solid #bcd2e4;
   border-radius: 6px;
   font-family: inherit;
-  color: var(--form-ele-font-color);
+  color: #373F46;
   font-size: 1rem;
   margin-bottom: 12px;
   padding: 14px;
@@ -209,7 +165,7 @@ label {
   font-weight: 600;
   font-size: 0.9rem;
   text-transform: uppercase;
-  color: var(--form-label-font-color);
+  color: #3c576e;
   padding-left: 6px;
 }
 .btn {
@@ -276,7 +232,7 @@ label {
   padding: 0 12px;
 }
 .brag_card li:hover {
-  background: var(--card-bg-hover-color);
+  background: #dce0e5;
   border-radius: 6px;
 }
 .brag_card .time {
@@ -372,7 +328,7 @@ dialog.popup .btn_small {
 dialog.popup.signout {
   position: relative;
   top: 90px;
-  left: 700px;
+  left: 625px;
 }
 dialog.popup button {
   display: block;

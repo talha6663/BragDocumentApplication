@@ -1,6 +1,7 @@
 import React, { useContext, useEffect, useRef, useState } from 'react';
 import { AiOutlineSearch } from "react-icons/ai";
 import { FaFile } from "react-icons/fa";
+import { MdDarkMode, MdLightMode } from "react-icons/md";
 import { useNavigate } from 'react-router-dom';
 import { ThemeContext } from "../Theme";
 import { UserAuth } from '../context/AuthContext';
@@ -95,7 +96,9 @@ const Navbar = (props) => {
                                 <input type="text" value={searchValue} onChange={handleChange} onKeyUp={handleKeyUp} placeholder="Search" />
                                 <AiOutlineSearch onClick={search} className="search_icon" title="Search" alt="search" />
                             </div>
-                            <button onClick={() => toggleTheme()} className="btn btn_small" data-theme={theme === "dark-theme" ? "dark" : "light"}>{theme}</button>
+                            <div onClick={() => toggleTheme()} className="btn_theme">
+                                {theme === "dark" ? <MdDarkMode /> : <MdLightMode />}
+                            </div>
 
                             <button className="nav_button no_border" onClick={openModal}>{user?.displayName}</button> 
                             <img referrerPolicy="no-referrer" className="profilePicture" src={user?.photoURL} onClick={openModal} alt="pic" />
