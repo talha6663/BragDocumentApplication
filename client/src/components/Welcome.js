@@ -13,7 +13,7 @@ const Welcome = () => {
 				<Navbar />
 				<div className="flex justtify-content-center mx-28 text-neutral-700">
 					<div className="w-1/2 mr-12 mt-20">
-						<h1 className="mb-4 text-6xl text-slate-600">What is a bragdoc?</h1>
+						<h1 className="mb-4 pl-1 text-5xl text-slate-600">What is a bragdoc?</h1>
 						<ul className="bg-white bg-opacity-20 drop-shadow-xl p-6 rounded-md">
 							<li className="py-2">
 								<strong>List of accomplishments</strong> - Start by making a comprehensive list of your accomplishments, big and small, throughout your career. These can include awards, promotions, successful projects, positive feedback from clients
@@ -48,7 +48,7 @@ const Welcome = () => {
 								<cite>&mdash; ChatGPT</cite>
 							</figcaption>
 						</blockquote>
-						<div className="text-right pt-10 pr-8">
+						<div className="text-right pt-10 pr-8 border-3 border-white">
 							<Link onClick={googleSignIn} className="p-4 rounded-full border-2 border-white text-xl font-bold bg-orange-600 text-white">
 								Start your bragdoc today!
 							</Link>
