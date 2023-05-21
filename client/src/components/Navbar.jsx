@@ -106,7 +106,10 @@ const Navbar = (props) => {
                             </dialog>
                         </>
                     ) : (
-                        <button className="nav_button" onClick={handleGoogleSignIn}>Sign In</button>
+                        <>
+                            <span className="mr-3">Already started a bragdoc?</span> 
+                            <button className="px-8 py-2 rounded-full border-2 border-white text-md font-bold bg-orange-600 text-white" onClick={handleGoogleSignIn}>Sign In</button>
+                        </>
                     )}
                 </div>
             </nav>
