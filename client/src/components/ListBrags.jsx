@@ -75,11 +75,13 @@ const ListBrags = (props) => {
 			"January", "February", "March", "April", "May", "June", "July", 
 			"August", "September", "October", "November", "December"
 		];
+		var dayNames = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
+		const dayOfWeek = date.getUTCDay();
 		const monthIndex = date.getUTCMonth();
 		const day = date.getUTCDate();
 		const year = date.getUTCFullYear();
 
-		return `${monthNames[monthIndex]} ${day} ${year}`;
+		return `${dayNames[dayOfWeek]} ${monthNames[monthIndex]} ${day} ${year}`;
 	}
 
 	function changeTimeFormat(time) {
@@ -110,7 +112,7 @@ const ListBrags = (props) => {
 				const trimmedTag = element.trim();
 				if (!uniqueTags.has(trimmedTag)) {
 					uniqueTags.add(trimmedTag);
-					return <span key={index} className="flex items-center border-2 bg-slate-200 border-slate-300 text-slate-600 dark:bg-slate-700 dark:border-slate-700 dark:text-slate-400 rounded-md text-xs py-0.5 px-4 ml-2 mb-2">{trimmedTag}</span>;
+					return <span key={index} className="flex items-center border-2 bg-slate-200 border-slate-300 text-slate-600 dark:bg-neutral-700 dark:border-neutral-700 dark:text-neutral-400 rounded-md text-xs py-0.5 px-4 ml-2 mb-2">{trimmedTag}</span>;
 				}
 			}
 			return null;
@@ -132,12 +134,12 @@ const ListBrags = (props) => {
 						{brags[date].map((bragItem, index) => {
 							const {brag_id, brag, created_time} = bragItem;
 							return (
-								<li key={brag_id} className="flex items-stretch group hover:bg-neutral-200 dark:hover:bg-neutral-800 rounded-md px-4 py-1">
-									<div className="font-semibold text-xs text-neutral-500 dark:text-neutral-400 whitespace-nowrap uppercase mr-3 pt-1">{changeTimeFormat(created_time)}</div> 
+								<li key={brag_id} className="flex items-stretch group hover:bg-neutral-200 dark:hover:bg-neutral-900 rounded-md px-4 py-0">
+									<div className="font-semibold text-xs text-neutral-500 dark:text-gray-500 whitespace-nowrap uppercase mr-3 pt-1">{changeTimeFormat(created_time)}</div> 
 									<div>{brag}</div>
 									<div className="flex flex-row ml-auto pt-1">
 										<EditBrag item={bragItem} refreshList={props.toggleRefreshList} />
-										<FaTrash className="text-slate-50 group-hover:text-slate-600 dark:text-zinc-950 dark:group-hover:text-slate-400 ml-3 cursor-pointer" title="Delete" onClick={() => deleteBrag(brag_id)} />
+										<FaTrash className="mt-[2px] w-3 h-3 text-slate-50 group-hover:text-slate-600 dark:text-zinc-950 dark:group-hover:text-slate-400 ml-3 cursor-pointer" title="Delete" onClick={() => deleteBrag(brag_id)} />
 									</div>
 								</li>
 							);

@@ -83,8 +83,8 @@ const Navbar = (props) => {
 
     return (
         <header className="fixed top-0 w-full">
-            <nav className="flex items-center justify-between h-16 px-20 bg-opacity-80 bg-slate-100 border-b-slate-200 dark:bg-zinc-950 border-b-2 dark:border-b-gray-800">
-                <div className="flex flex-row items-center font-bold text-3xl tracking-tighter text-slate-600 dark:text-slate-400"><FaFile className="text-xl text-orange-600" />BRAGBOX</div>
+            <nav className="flex items-center justify-between h-16 px-20 bg-opacity-70 dark:bg-opacity-70 bg-slate-100 border-b-slate-200 dark:bg-zinc-950 border-b-2 dark:border-b-gray-800">
+                <div className="flex flex-row items-center font-bold text-3xl tracking-tighter text-slate-600 dark:text-slate-300"><FaFile className="text-xl text-orange-600" />BRAGBOX</div>
                 <div className="flex flex-row items-center relative">
                     {user?.displayName ? (
                         <>
@@ -92,14 +92,14 @@ const Navbar = (props) => {
                                 <input type="text" className="w-full bg-transparent border-transparent px-4 py-1 placeholder:text-slate-600 text-slate-600 dark:placeholder:text-slate-400 dark:text-slate-300 focus:outline-none" value={searchValue} onChange={handleChange} onKeyUp={handleKeyUp} placeholder="Search" />
                                 <AiOutlineSearch onClick={search} className="w-6 h-6 text-slate-600 dark:text-slate-400 cursor-pointer mr-3" title="Search" alt="search" />
                             </div>
-                            <div onClick={() => toggleTheme()} className="mx-1 p-3 cursor-pointer text-slate-600 dark:text-slate-400" title={`${theme} theme`}>
+                            <div onClick={() => toggleTheme()} className="mx-1 p-3 cursor-pointer text-slate-600 dark:text-neutral-400" title={`${theme} theme`}>
                                 {theme === "dark" ? <MdDarkMode /> : <MdLightMode />}
                             </div>
 
-                            <div className="mr-2 py-3 text-slate-600 dark:text-slate-400 cursor-pointer" onClick={openModal}>{user?.displayName}</div> 
+                            <div className="mr-2 py-3 text-slate-600 dark:text-neutral-400 cursor-pointer" onClick={openModal}>{user?.displayName}</div> 
                             <img referrerPolicy="no-referrer" className="border-gray-500 border-2 rounded-full w-11 h-11 m-0" src={user?.photoURL} onClick={openModal} alt="pic" />
 
-                            <dialog ref={modalRef} className="text-gray-600 bg-slate-50 border-slate-500 dark:text-gray-400 dark:bg-gray-900 rounded-md border-4 text-center absolute top-12 -right-80">
+                            <dialog ref={modalRef} className="text-gray-600 bg-slate-50 border-neutral-500 dark:text-gray-400 dark:bg-zinc-900 rounded-md border-2 text-center absolute top-12 -right-80">
                                 <div className="mb-6">Sign out of account {user?.displayName}?</div>
                                 <ButtonSmall click={handleSignOut} value={"Sign Out"} />
                                 <ButtonSmall click={closeModal} value={"Cancel"} />
@@ -107,8 +107,8 @@ const Navbar = (props) => {
                         </>
                     ) : (
                         <>
-                            <span className="mr-3">Already started a bragdoc?</span> 
-                            <button className="px-8 py-2 rounded-full border-2 border-white text-md font-bold bg-orange-600 text-white" onClick={handleGoogleSignIn}>Sign In</button>
+                            <span className="mr-3">Already with Bragbox?</span> 
+                            <button className="px-8 py-2 rounded-full border-2 border-white text-md font-bold bg-orange-600 hover:bg-white hover:border-orange-600 hover:text-orange-600 text-white" onClick={handleGoogleSignIn}>Sign In</button>
                         </>
                     )}
                 </div>

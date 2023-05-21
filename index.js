@@ -100,7 +100,6 @@ app.get("*", (req, res) => {
 	res.sendFile(path.join(__dirname, "./client/build/index.html"));
 });
 
-// Added 0.0.0.0 for railway deployment
 app.listen(PORT, () => {
 	console.log(`Server listening on port ${PORT}`);
 });

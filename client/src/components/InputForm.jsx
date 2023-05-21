@@ -37,6 +37,10 @@ const InputForm = (props) => {
 			// Clear inputs
 			setBrag("");
 			setTags("");
+
+			// Set focus back to the textarea
+			document.getElementById('brag').focus();
+
 		} catch (err) {
 			console.error(err.message);
 		}
@@ -46,9 +50,9 @@ const InputForm = (props) => {
 		<div className="w-1/3 mt-20 ml-20 pr-5">
 			<form className="flex flex-col" onSubmit={onSubmitForm}>
 				<Label htmlFor={brag} value={"Brag about what you've done!"} />
-				<textarea id="brag" col="6" rows="10" className="mb-3 p-4 w-full bg-slate-200 dark:bg-slate-600 dark:border-slate-600 dark:text-slate-200 border-2 rounded-md border-slate-300" placeholder="I've accomplished ..." onChange={(e) => setBrag(e.target.value)} value={brag}></textarea>
+				<textarea id="brag" col="6" rows="10" className="mb-3 p-3 w-full bg-slate-200 dark:bg-slate-800 dark:border-slate-800 dark:text-slate-200 border-2 rounded-md border-slate-300 focus:outline-none" placeholder="I've accomplished ..." onChange={(e) => setBrag(e.target.value)} value={brag}></textarea>
 				<Label htmlFor={tags} value={"Tags - Comma separated if multiple"} />
-				<input id="tags" className="p-4 w-full bg-slate-200 border-2 rounded-md border-slate-300 dark:bg-slate-600 dark:border-slate-600 dark:text-slate-200" placeholder="Eg: mentored, javascript, winning" onChange={(e) => setTags(e.target.value)} value={tags} />
+				<input id="tags" className="p-3 w-full bg-slate-200 border-2 rounded-md border-slate-300 dark:bg-slate-800 dark:border-slate-800 dark:text-slate-200 focus:outline-none" placeholder="Eg: mentored, javascript, winning" onChange={(e) => setTags(e.target.value)} value={tags} />
 				<ButtonLarge btnType={"submit"} value={"Submit"} />
 			</form>
 
