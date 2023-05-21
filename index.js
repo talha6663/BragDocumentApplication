@@ -5,6 +5,7 @@ const app = express();
 const PORT = process.env.PORT || 5000;
 const cors = require("cors");
 const pool = require("./db");
+const path = require("path");
 
 // Middleware
 app.use(cors());
@@ -92,6 +93,11 @@ app.delete("/brags/:id", async (req, res) => {
 	} catch (err) {
 		console.error(err.message);
 	}
+});
+
+// Serve React app's index.html for all routes
+app.get("*", (req, res) => {
+	res.sendFile(path.join(__dirname, "./client/build/index.html"));
 });
 
 // Added 0.0.0.0 for railway deployment
