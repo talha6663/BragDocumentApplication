@@ -110,7 +110,7 @@ const ListBrags = (props) => {
 				const trimmedTag = element.trim();
 				if (!uniqueTags.has(trimmedTag)) {
 					uniqueTags.add(trimmedTag);
-					return <span key={index} className="flex items-center border-2 bg-slate-200 border-slate-400 text-slate-600 dark:bg-slate-700 dark:border-slate-700 dark:text-slate-400 rounded-md text-xs py-0.5 px-4 ml-2 mb-2">{trimmedTag}</span>;
+					return <span key={index} className="flex items-center border-2 bg-slate-200 border-slate-300 text-slate-600 dark:bg-slate-700 dark:border-slate-700 dark:text-slate-400 rounded-md text-xs py-0.5 px-4 ml-2 mb-2">{trimmedTag}</span>;
 				}
 			}
 			return null;
@@ -132,7 +132,7 @@ const ListBrags = (props) => {
 						{brags[date].map((bragItem, index) => {
 							const {brag_id, brag, created_time} = bragItem;
 							return (
-								<li key={brag_id} className="flex items-stretch group hover:bg-slate-200 dark:hover:bg-neutral-800 rounded-md px-4 py-1">
+								<li key={brag_id} className="flex items-stretch group hover:bg-neutral-200 dark:hover:bg-neutral-800 rounded-md px-4 py-1">
 									<div className="font-semibold text-xs text-neutral-500 dark:text-neutral-400 whitespace-nowrap uppercase mr-3 pt-1">{changeTimeFormat(created_time)}</div> 
 									<div>{brag}</div>
 									<div className="flex flex-row ml-auto pt-1">

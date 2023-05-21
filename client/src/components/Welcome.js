@@ -14,7 +14,7 @@ const Welcome = () => {
 				<div className="flex justtify-content-center mx-28 text-neutral-700">
 					<div className="w-1/2 mr-12 mt-20">
 						<h1 className="mb-4 text-6xl text-slate-600">What is a bragdoc?</h1>
-						<ul className="bg-white bg-opacity-30 drop-shadow-lg p-6 rounded-md">
+						<ul className="bg-white bg-opacity-20 drop-shadow-xl p-6 rounded-md">
 							<li className="py-2">
 								<strong>List of accomplishments</strong> - Start by making a comprehensive list of your accomplishments, big and small, throughout your career. These can include awards, promotions, successful projects, positive feedback from clients
 								or colleagues, and anything else that you're proud of.

@@ -88,15 +88,15 @@ const Navbar = (props) => {
                 <div className="flex flex-row items-center relative">
                     {user?.displayName ? (
                         <>
-                            <div className="mx-2 p-0 w-96 flex items-center border-2 rounded-full text-slate-600 border-slate-300 dark:border-slate-600 dark:bg-slate-600">
+                            <div className="p-0 w-96 flex items-center border-2 rounded-full text-slate-600 border-slate-300 dark:border-slate-600 dark:bg-slate-600">
                                 <input type="text" className="w-full bg-transparent border-transparent px-4 py-1 placeholder:text-slate-600 text-slate-600 dark:placeholder:text-slate-400 dark:text-slate-300 focus:outline-none" value={searchValue} onChange={handleChange} onKeyUp={handleKeyUp} placeholder="Search" />
                                 <AiOutlineSearch onClick={search} className="w-6 h-6 text-slate-600 dark:text-slate-400 cursor-pointer mr-3" title="Search" alt="search" />
                             </div>
-                            <div onClick={() => toggleTheme()} className="mx-4 p-3 cursor-pointer text-slate-600 dark:text-slate-400" title={`${theme} theme`}>
+                            <div onClick={() => toggleTheme()} className="mx-1 p-3 cursor-pointer text-slate-600 dark:text-slate-400" title={`${theme} theme`}>
                                 {theme === "dark" ? <MdDarkMode /> : <MdLightMode />}
                             </div>
 
-                            <div className="p-3 text-slate-600 dark:text-slate-400 cursor-pointer" onClick={openModal}>{user?.displayName}</div> 
+                            <div className="mr-2 py-3 text-slate-600 dark:text-slate-400 cursor-pointer" onClick={openModal}>{user?.displayName}</div> 
                             <img referrerPolicy="no-referrer" className="border-gray-500 border-2 rounded-full w-11 h-11 m-0" src={user?.photoURL} onClick={openModal} alt="pic" />
 
                             <dialog ref={modalRef} className="text-gray-600 bg-slate-50 border-slate-500 dark:text-gray-400 dark:bg-gray-900 rounded-md border-4 text-center absolute top-12 -right-80">

@@ -15,7 +15,7 @@ dialog::backdrop {
 }
 
 .welcome-bg-image {
-	background-image: url("./styles/people-g68c66d672_1920.jpg");
+	background-image: url("./people-g68c66d672_1920.jpg");
 	background-size: cover;
 	background-repeat: no-repeat;
     background-position: center center;
