@@ -144,7 +144,7 @@ const ListBrags = (props) => {
 						})}
 					</ul>
 
-					<div className="flex flex-wrap mt-2 ml-4">{tagBuilder(brags[date].tags)}</div>
+					<div className="flex flex-wrap mt-2 ml-2">{tagBuilder(brags[date].tags)}</div>
 				</div>
 			))}
 		</div>

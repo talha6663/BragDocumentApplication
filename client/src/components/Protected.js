@@ -7,9 +7,9 @@ const Protected = ({ children }) => {
 
 	if (!user) {
 		return <Navigate to="/" />;
+	} else {
+		return children;
 	}
-
-	return children;
 };
 
 export default Protected;
