@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 import { UserAuth } from '../context/AuthContext';
+import ButtonLarge from './forms/ButtonLarge';
+import Label from './forms/Label';
 
 const InputForm = (props) => {
 
@@ -41,27 +43,27 @@ const InputForm = (props) => {
 	};
 
     return (
-		<div className="panel_left">
-			<form className="input_form" onSubmit={onSubmitForm}>
-				<label htmlFor="brag">Brag about what you've done!</label>
-				<textarea id="brag" col="6" rows="10" className="form_element" placeholder="I've accomplished ..." onChange={(e) => setBrag(e.target.value)} value={brag}></textarea>
-				<label htmlFor="tags">Tags - Comma separated if multiple</label>
-				<input id="tags" className="form_element" placeholder="Eg: mentored, javascript, winning" onChange={(e) => setTags(e.target.value)} value={tags} />
-				<button className="btn">Submit</button>
+		<div className="w-1/3 mt-20 ml-20 pr-5">
+			<form className="flex flex-col" onSubmit={onSubmitForm}>
+				<Label htmlFor={brag} value={"Brag about what you've done!"} />
+				<textarea id="brag" col="6" rows="10" className="mb-3 p-4 w-full bg-slate-200 dark:bg-slate-600 dark:border-slate-600 dark:text-slate-200 border-2 rounded-md border-slate-500" placeholder="I've accomplished ..." onChange={(e) => setBrag(e.target.value)} value={brag}></textarea>
+				<Label htmlFor={tags} value={"Tags - Comma separated if multiple"} />
+				<input id="tags" className="p-4 w-full bg-slate-200 border-2 rounded-md border-slate-500 dark:bg-slate-600 dark:border-slate-600 dark:text-slate-200" placeholder="Eg: mentored, javascript, winning" onChange={(e) => setTags(e.target.value)} value={tags} />
+				<ButtonLarge btnType={"submit"} value={"Submit"} />
 			</form>
 
-			<div>
-				<h3>You won't remember everything you did and neither will your manager!</h3>
-				<div>This is why you should always have a bragdoc on the go.  Here are some tips and suggestions.</div>
-				<ul>
-					<li>Document your goals and accomplishments.</li>
-					<li>Your contributions to a project.</li>
-					<li>Little wins!</li>
-					<li>Anything you might need to remember.</li>
-					<li>Use comma separated tags to organize your brags.</li>
+			<section className="my-4">
+				<h3 className="text-xl font-bold text-slate-700 dark:text-slate-500 my-5">You won't remember everything you did and neither will your manager!</h3>
+				<p className="my-3">This is why you should always have a bragdoc on the go.  Here are some tips and suggestions.</p>
+				<ul className="list-inside list-disc mt-1">
+					<li class="pl-4">Document your goals and accomplishments.</li>
+					<li class="pl-4">Your contributions to a project.</li>
+					<li class="pl-4">Little wins!</li>
+					<li class="pl-4">Anything you might need to remember.</li>
+					<li class="pl-4">Use comma separated tags to organize your brags.</li>
 				</ul>
-				<div>You can update it daily, weekly or monthly, just be sure to stay consistant.  Your career will thank you.</div>
-			</div>
+				<p className="my-3">You can update it daily, weekly or monthly, just be sure to stay consistant.  Your career will thank you.</p>
+			</section>
 		</div>
     );
 };

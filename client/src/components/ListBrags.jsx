@@ -110,7 +110,7 @@ const ListBrags = (props) => {
 				const trimmedTag = element.trim();
 				if (!uniqueTags.has(trimmedTag)) {
 					uniqueTags.add(trimmedTag);
-					return <span key={index}>{trimmedTag}</span>;
+					return <span key={index} className="flex items-center border-2 bg-slate-200 border-slate-400 text-slate-600 dark:bg-slate-700 dark:border-slate-700 dark:text-slate-400 rounded-md text-xs py-0.5 px-4 ml-2 mb-2">{trimmedTag}</span>;
 				}
 			}
 			return null;
@@ -124,27 +124,27 @@ const ListBrags = (props) => {
 	}, [props.toggleRefreshList, user.email, getBrags, props.jsonData]);
 
 	return (
-		<div className="panel_right">
+		<div className="w-2/3 mt-20 mr-20 pl-5">
 			{Object.keys(brags).map((date, index) => (
-				<div key={index} className="brag_card">
-					<div className="date">{formatDate(date)}</div>
-					<ul>
+				<div key={index} className="bg-transparent whitespace-pre-line mb-3">
+					<div className="py-2 px-4 font-semibold uppercase rounded-md bg-slate-400 text-neutral-700 dark:bg-slate-700 dark:text-neutral-400">{formatDate(date)}</div>
+					<ul	>
 						{brags[date].map((bragItem, index) => {
 							const {brag_id, brag, created_time} = bragItem;
 							return (
-								<li key={brag_id}>
-									<div className="time">{changeTimeFormat(created_time)}</div> 
-									<div className="brag_text">{brag}</div>
-									<div className="controls">
+								<li key={brag_id} className="flex items-stretch group hover:bg-slate-200 dark:hover:bg-neutral-800 rounded-md px-4 py-1">
+									<div className="font-semibold text-xs text-neutral-500 dark:text-neutral-400 whitespace-nowrap uppercase mr-3 pt-1">{changeTimeFormat(created_time)}</div> 
+									<div>{brag}</div>
+									<div className="flex flex-row ml-auto pt-1">
 										<EditBrag item={bragItem} refreshList={props.toggleRefreshList} />
-										<FaTrash className="icon" title="Delete" onClick={() => deleteBrag(brag_id)} />
+										<FaTrash className="text-slate-50 group-hover:text-slate-600 dark:text-zinc-950 dark:group-hover:text-slate-400 ml-3 cursor-pointer" title="Delete" onClick={() => deleteBrag(brag_id)} />
 									</div>
 								</li>
 							);
 						})}
 					</ul>
 
-					<div className="tags_wrapper">{tagBuilder(brags[date].tags)}</div>
+					<div className="flex flex-wrap mt-2 ml-4">{tagBuilder(brags[date].tags)}</div>
 				</div>
 			))}
 		</div>

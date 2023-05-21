@@ -2,7 +2,6 @@ import { useContext } from "react";
 import { Route, Routes } from "react-router-dom";
 import { ThemeContext } from "../Theme";
 import { AuthContextProvider } from "../context/AuthContext";
-import "../styles/App.css";
 import ParentComponent from "./ParentComponent";
 import Protected from "./Protected";
 import Welcome from "./Welcome";
@@ -12,22 +11,29 @@ function App() {
 
 	return (
 		<AuthContextProvider>
-			<div data-theme={theme}>
-				{/* <div data-theme={theme}> */}
-				<div className="App">
-					<Routes>
-						<Route exact path="/" element={<Welcome />} />
-						<Route
-							path="/brag"
-							element={
-								<Protected>
+			<Routes>
+				<Route
+					exact
+					path="/"
+					element={
+						<div className="flex justify-items-stretch min-h-screen bg-slate-50 text-neutral-700">
+							<Welcome />
+						</div>
+					}
+				/>
+				<Route
+					path="/brag"
+					element={
+						<Protected>
+							<div className={theme}>
+								<div className="flex justify-items-stretch min-h-screen bg-slate-50 text-neutral-700 dark:bg-zinc-950 dark:text-neutral-400">
 									<ParentComponent />
-								</Protected>
-							}
-						/>
-					</Routes>
-				</div>
-			</div>
+								</div>
+							</div>
+						</Protected>
+					}
+				/>
+			</Routes>
 		</AuthContextProvider>
 	);
 }

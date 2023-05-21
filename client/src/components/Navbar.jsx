@@ -5,6 +5,7 @@ import { MdDarkMode, MdLightMode } from "react-icons/md";
 import { useNavigate } from 'react-router-dom';
 import { ThemeContext } from "../Theme";
 import { UserAuth } from '../context/AuthContext';
+import ButtonSmall from './forms/ButtonSmall';
 
 const Navbar = (props) => {
     const {googleSignIn} = UserAuth();
@@ -81,27 +82,28 @@ const Navbar = (props) => {
     }, [user, navigate]);
 
     return (
-        <header>
-            <nav>
-                <div className="logo"><FaFile className="logo_icon" />BRAGBOX</div>
-                <div className="nav_rightSide">
+        <header className="fixed top-0 w-full">
+            <nav className="flex items-center justify-between h-16 px-20 bg-opacity-80 bg-slate-100 border-b-slate-200 dark:bg-zinc-950 border-b-2 dark:border-b-gray-800">
+                <div className="flex flex-row items-center font-bold text-3xl tracking-tighter text-slate-600 dark:text-slate-400"><FaFile className="text-xl text-orange-600" />BRAGBOX</div>
+                <div className="flex flex-row items-center relative">
                     {user?.displayName ? (
                         <>
-                            <dialog ref={modalRef} className="popup signout">
-                                <div className="message">Sign out of account {user?.displayName}?</div>
-                                <button className="btn btn_small" onClick={handleSignOut}>Sign Out</button>
-                                <button className="btn btn_small btn_transparent" onClick={closeModal}>Cancel</button>
-                            </dialog>
-                            <div className="navbar_search">
-                                <input type="text" value={searchValue} onChange={handleChange} onKeyUp={handleKeyUp} placeholder="Search" />
-                                <AiOutlineSearch onClick={search} className="search_icon" title="Search" alt="search" />
+                            <div className="mx-2 p-0 w-96 flex items-center border-2 rounded-full text-slate-600 border-slate-300 dark:border-slate-600 dark:bg-slate-600">
+                                <input type="text" className="w-full bg-transparent border-transparent px-4 py-1 placeholder:text-slate-600 text-slate-600 dark:placeholder:text-slate-400 dark:text-slate-300 focus:outline-none" value={searchValue} onChange={handleChange} onKeyUp={handleKeyUp} placeholder="Search" />
+                                <AiOutlineSearch onClick={search} className="w-6 h-6 text-slate-600 dark:text-slate-400 cursor-pointer mr-3" title="Search" alt="search" />
                             </div>
-                            <div onClick={() => toggleTheme()} className="btn_theme">
+                            <div onClick={() => toggleTheme()} className="mx-4 p-3 cursor-pointer text-slate-600 dark:text-slate-400" title={`${theme} theme`}>
                                 {theme === "dark" ? <MdDarkMode /> : <MdLightMode />}
                             </div>
 
-                            <button className="nav_button no_border" onClick={openModal}>{user?.displayName}</button> 
-                            <img referrerPolicy="no-referrer" className="profilePicture" src={user?.photoURL} onClick={openModal} alt="pic" />
+                            <div className="p-3 text-slate-600 dark:text-slate-400 cursor-pointer" onClick={openModal}>{user?.displayName}</div> 
+                            <img referrerPolicy="no-referrer" className="border-gray-500 border-2 rounded-full w-11 h-11 m-0" src={user?.photoURL} onClick={openModal} alt="pic" />
+
+                            <dialog ref={modalRef} className="text-gray-600 bg-slate-50 border-slate-500 dark:text-gray-400 dark:bg-gray-900 rounded-md border-4 text-center absolute top-12 -right-80">
+                                <div className="mb-6">Sign out of account {user?.displayName}?</div>
+                                <ButtonSmall click={handleSignOut} value={"Sign Out"} />
+                                <ButtonSmall click={closeModal} value={"Cancel"} />
+                            </dialog>
                         </>
                     ) : (
                         <button className="nav_button" onClick={handleGoogleSignIn}>Sign In</button>

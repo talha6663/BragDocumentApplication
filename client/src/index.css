@@ -1,0 +1,33 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+@import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@400;600;900&display=swap');
+
+@layer base {
+	html {
+		font-family: Source Sans Pro, system-ui, sans-serif;
+	}
+}
+
+/* Override */
+dialog::backdrop {
+	background-color: rgba(0, 0, 0, 0.8);
+}
+
+.welcome-bg-image {
+	background-image: url("./styles/people-g68c66d672_1920.jpg");
+	background-size: cover;
+	background-repeat: no-repeat;
+    background-position: center center;
+    max-width: 100%;
+    max-height: 100%;
+    bottom: 0;
+    left: 0;
+    margin: auto;
+    overflow: auto;
+    position: fixed;
+    right: 0;
+    top: 0;
+    -o-object-fit: contain;
+    object-fit: contain;
+}
