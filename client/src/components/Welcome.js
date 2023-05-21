@@ -14,7 +14,7 @@ const Welcome = () => {
 				<div className="flex justtify-content-center mx-28 text-neutral-700">
 					<div className="w-1/2 mr-12 mt-20">
 						<h1 className="mb-4 pl-1 text-5xl text-slate-600">What is a bragdoc?</h1>
-						<ul className="bg-white bg-opacity-20 drop-shadow-xl p-6 rounded-md">
+						<ul className="bg-white bg-opacity-20 drop-shadow-xl p-6 rounded-lg border-[1px] border-neutral-300">
 							<li className="py-2">
 								<strong>List of accomplishments</strong> - Start by making a comprehensive list of your accomplishments, big and small, throughout your career. These can include awards, promotions, successful projects, positive feedback from clients
 								or colleagues, and anything else that you're proud of.
@@ -39,12 +39,12 @@ const Welcome = () => {
 						</ul>
 					</div>
 					<div className="w-1/2 ml-10 mt-20">
-						<blockquote className="my-5">
+						<blockquote className="my-5 bg-white bg-opacity-50 drop-shadow-xl p-6 rounded-lg border-[1px] border-neutral-300">
 							<q className="font-semibold text-xl">
 								Your achievements may speak for themselves, but without a bragdoc, they risk being whispered instead of shouted from the rooftops. A well-crafted bragdoc ensures that your hard work and successes are not just remembered, but
 								celebrated and shared to propel your career forward.
 							</q>
-							<figcaption className="text-right mr-12">
+							<figcaption className="ml-4">
 								<cite>&mdash; ChatGPT</cite>
 							</figcaption>
 						</blockquote>
