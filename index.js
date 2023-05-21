@@ -95,6 +95,6 @@ app.delete("/brags/:id", async (req, res) => {
 });
 
 // Added 0.0.0.0 for railway deployment
-app.listen(PORT, "0.0.0.0", () => {
+app.listen(PORT, () => {
 	console.log(`Server listening on port ${PORT}`);
 });
