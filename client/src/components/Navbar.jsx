@@ -82,8 +82,8 @@ const Navbar = (props) => {
     }, [user, navigate]);
 
     return (
-        <header className="fixed top-0 w-full">
-            <nav className="flex items-center justify-between h-16 px-3 sm:px-20 bg-opacity-70 dark:bg-opacity-70 bg-slate-100 border-b-slate-200 dark:bg-midnight-900 border-b-2 dark:border-b-midnight-800">
+        <header className="z-50 fixed top-0 w-full">
+            <nav className="flex items-center justify-between h-16 px-3 sm:px-20 md:bg-opacity-70 md:dark:bg-opacity-70 bg-slate-100 border-b-slate-200 dark:bg-midnight-900 border-b-2 dark:border-b-midnight-800">
                 <div className="flex flex-row items-center font-bold text-3xl tracking-tighter text-slate-600 dark:text-neutral-200"><SiTask className="text-teal-500" />BRAGBOX</div>
                 <div className="flex flex-row items-center relative">
                     {user?.displayName ? (
@@ -108,7 +108,7 @@ const Navbar = (props) => {
                     ) : (
                         <>
                             <span className="hidden sm:inline sm:mr-3">Already with Bragbox?</span> 
-                            <button className="whitespace-nowrap px-4 py-2 sm:px-8 sm:py-2 rounded-full border-2 border-white text-md font-bold bg-teal-500 hover:bg-white hover:border-teal-500 hover:text-teal-500 text-white" onClick={handleGoogleSignIn}>Sign In</button>
+                            <button className="whitespace-nowrap text-lg px-6 py-2 sm:px-8 sm:py-2 rounded-full border-2 border-white text-md font-bold bg-teal-500 hover:bg-white hover:border-teal-500 hover:text-teal-500 text-white" onClick={handleGoogleSignIn}>Sign In</button>
                         </>
                     )}
                 </div>

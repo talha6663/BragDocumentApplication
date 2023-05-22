@@ -8,7 +8,13 @@ export const AuthContextProvider = ({ children }) => {
 	const [user, setUser] = useState({});
 
 	const googleSignIn = () => {
-		const provider = new GoogleAuthProvider();
+		let provider = new GoogleAuthProvider();
+
+		// Allows prompt to show to switch Google accounts
+		provider.setCustomParameters({
+			prompt: "select_account",
+		});
+
 		signInWithPopup(auth, provider);
 	};
 
@@ -19,7 +25,6 @@ export const AuthContextProvider = ({ children }) => {
 	useEffect(() => {
 		const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
 			setUser(currentUser);
-			// console.log("User", currentUser);
 		});
 		return () => {
 			unsubscribe();

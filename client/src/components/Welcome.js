@@ -11,10 +11,10 @@ const Welcome = () => {
 		<>
 			<div className="welcome-bg-image" alt="thinking">
 				<Navbar />
-				<div className="sm:flex sm:justtify-content-center mx-3 md:mx-4 lg:mx-28 text-neutral-700">
+				<div className="sm:flex sm:justtify-content-center mb-3 mx-3 md:mx-4 lg:mx-28 text-neutral-700">
 					<div className="sm:w-1/2 sm:mr-12 mt-20">
-						<h1 className="mb-4 pl-3 text-center sm:text-left font-bold text-3xl sm:text-5xl text-slate-600">What is a bragdoc?</h1>
-						<ul className="bg-white bg-opacity-60 sm:bg-opacity-40 drop-shadow-xl p-6 rounded-lg border-[1px] border-neutral-300">
+						<h1 className="mb-4 pl-3 text-center sm:text-left font-bold tracking-tighter text-3xl sm:text-4xl text-slate-600">What is a bragdoc?</h1>
+						<ul className="bg-white bg-opacity-50 drop-shadow-xl p-6 rounded-lg border-[1px] border-neutral-300">
 							<li className="py-2">
 								<strong>List of accomplishments</strong> - Start by making a comprehensive list of your accomplishments, big and small, throughout your career. These can include awards, promotions, successful projects, positive feedback from clients
 								or colleagues, and anything else that you're proud of.
@@ -39,7 +39,7 @@ const Welcome = () => {
 						</ul>
 					</div>
 					<div className="sm:w-1/2 sm:ml-10 sm:mt-20">
-						<blockquote className="my-5 bg-white bg-opacity-60 sm:bg-opacity-50 drop-shadow-xl p-6 rounded-lg border-[1px] border-neutral-300">
+						<blockquote className="my-5 bg-white bg-opacity-60 drop-shadow-xl p-6 rounded-lg border-[1px] border-neutral-300">
 							<q className="font-semibold text-xl">
 								Your achievements may speak for themselves, but without a bragdoc, they risk being whispered instead of shouted from the rooftops. A well-crafted bragdoc ensures that your hard work and successes are not just remembered, but
 								celebrated and shared to propel your career forward.
@@ -48,8 +48,8 @@ const Welcome = () => {
 								<cite>&mdash; ChatGPT</cite>
 							</figcaption>
 						</blockquote>
-						<div className="text-center sm:text-right pt-5 sm:pt-10 mb-3 sm:mb-0 sm:pr-8 border-3 border-white">
-							<Link onClick={googleSignIn} className="p-4 rounded-full border-2 bg-white text-teal-500 border-teal-500 hover:bg-teal-500 hover:text-white text-xl font-bold">
+						<div className="text-center sm:text-right py-5 sm:pt-10 sm:mb-0 sm:pr-8 border-3 border-white">
+							<Link onClick={googleSignIn} className="p-4 rounded-full border-2 border-white text-md bg-teal-500 hover:bg-white hover:border-teal-500 hover:text-teal-500 text-white text-xl font-bold">
 								Start your Bragbox today!
 							</Link>
 						</div>
