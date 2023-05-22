@@ -46,9 +46,9 @@ const EditBrag = ({item, refreshList}) => {
 			<FaEdit className="mt-[2px] w-3 h-3 text-slate-50 group-hover:text-slate-600 dark:text-midnight-900 dark:group-hover:text-midnight-100 ml-3 cursor-pointer" title="Edit Brag" onClick={openModal} />
 
             <dialog ref={modalRef} className="p-4 w-[500px] bg-slate-50 border-slate-500 dark:bg-midnight-900 dark:border-midnight-800 rounded-md border-4">
-				<Label htmlFor={brag} value={"Brag about what you've done!"} />
+				<Label htmlFor={"brag"} value={"Brag about what you've done!"} />
                 <textarea className="mb-3 p-3 w-full bg-slate-200 border-2 rounded-md border-slate-300 dark:bg-midnight-800 dark:border-midnight-800 dark:text-midnight-100 focus:outline-none" rows="10" value={brag} onChange={(e) => setBrag(e.target.value)} />
-				<Label htmlFor={tags} value={"Tags - Comma separated if multiple"} />
+				<Label htmlFor={"tags"} value={"Tags - Comma separated if multiple"} />
 				<input id="tags" className="p-3 w-full bg-slate-200 border-2 rounded-md border-slate-300 dark:bg-midnight-800 dark:border-midnight-800 dark:text-midnight-100 focus:outline-none" placeholder="Eg: mentored, javascript, winning" onChange={(e) => setTags(e.target.value)} value={tags} />
                 <div className="flex flex-row justify-between">
 					<ButtonLarge btnType={"button"} value={"Save"} click={(e) => updateBrag(e)} />
