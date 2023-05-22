@@ -1,6 +1,6 @@
 import { useCallback, useEffect, useState } from 'react';
-import { FaTrash } from "react-icons/fa";
 import { UserAuth } from '../context/AuthContext';
+import DeleteBrag from './DeleteBrag';
 import EditBrag from './EditBrag';
 
 const ListBrags = (props) => {
@@ -40,31 +40,6 @@ const ListBrags = (props) => {
 			console.error(err.message);
 		}
 	}, [setBrags, props.jsonData]);
-
-	
-
-	const deleteBrag = async (id) => {
-		try {
-			await fetch(`${process.env.REACT_APP_API_URL}/brags/${id}`, {
-				method: 'DELETE',
-			});
-
-			// Create a copy of the brags state object
-			const updatedBrags = {...brags};
-
-			// Loop through each date key in the object
-			Object.keys(updatedBrags).forEach(date => {
-				// Filter out the deleted brag from the array for the current date as well as tags
-				updatedBrags[date] = updatedBrags[date].filter(brag => brag.brag_id !== id);
-				updatedBrags[date].tags = updatedBrags[date].map((brag) => brag.tags).flat();
-			});
-
-			// Update the state with the updated object
-			setBrags(updatedBrags);
-		} catch (err) {
-			console.error(err.message);
-		}
-	};
 
 	// Formats the date into a more readable format
 	function formatDate(dateString) {
@@ -110,7 +85,7 @@ const ListBrags = (props) => {
 				const trimmedTag = element.trim();
 				if (!uniqueTags.has(trimmedTag)) {
 					uniqueTags.add(trimmedTag);
-					return <span key={index} className="flex items-center border-2 bg-slate-200 border-slate-300 text-slate-600 dark:bg-midnight-700 dark:border-midnight-700 dark:text-neutral-300 rounded-md text-xs py-0.5 px-4 ml-2 mb-2">{trimmedTag}</span>;
+					return <span key={index} className="flex items-center border-2 bg-slate-200 border-slate-300 text-slate-600 dark:bg-midnight-700 dark:border-midnight-700 dark:text-neutral-300 rounded-full text-xs py-0.5 px-4 ml-2 mb-2">{trimmedTag}</span>;
 				}
 			}
 			return null;
@@ -127,17 +102,17 @@ const ListBrags = (props) => {
 		<div className="md:w-2/3 mx-3 mt-5 md:mt-20 md:mr-20 md:pl-5">
 			{Object.keys(brags).map((date, index) => (
 				<div key={index} className="bg-transparent whitespace-pre-line mb-3">
-					<div className="py-2 px-4 font-semibold uppercase rounded-md bg-slate-300 text-neutral-700 dark:bg-midnight-700 dark:text-neutral-400">{formatDate(date)}</div>
+					<div className="py-2 px-4 font-semibold uppercase text-center sm:text-left rounded-full bg-slate-300 text-neutral-700 dark:bg-midnight-700 dark:text-neutral-400">{formatDate(date)}</div>
 					<ul	>
 						{brags[date].map((bragItem, index) => {
 							const {brag_id, brag, created_time} = bragItem;
 							return (
 								<li key={brag_id} className="flex items-stretch group hover:bg-neutral-200 dark:hover:bg-midnight-800 rounded-md px-4 py-0">
-									<div className="font-semibold text-xs text-neutral-400 dark:text-midnight-100 whitespace-nowrap uppercase mr-3 pt-1">{changeTimeFormat(created_time)}</div> 
+									<div className="font-semibold text-xs text-neutral-500 dark:text-midnight-100 whitespace-nowrap uppercase mr-3 pt-1">{changeTimeFormat(created_time)}</div> 
 									<div>{brag}</div>
 									<div className="flex flex-row ml-auto pt-1">
 										<EditBrag item={bragItem} refreshList={props.toggleRefreshList} />
-										<FaTrash className="mt-[2px] w-3 h-3 md:text-slate-50 group-hover:text-slate-600 dark:text-midnight-900 dark:group-hover:text-midnight-100 ml-3 cursor-pointer" title="Delete" onClick={() => deleteBrag(brag_id)} />
+										<DeleteBrag item={bragItem} refreshList={props.toggleRefreshList} />
 									</div>
 								</li>
 							);
