@@ -124,20 +124,20 @@ const ListBrags = (props) => {
 	}, [props.toggleRefreshList, user.email, getBrags, props.jsonData]);
 
 	return (
-		<div className="w-2/3 mt-20 mr-20 pl-5">
+		<div className="md:w-2/3 mx-3 mt-5 md:mt-20 md:mr-20 md:pl-5">
 			{Object.keys(brags).map((date, index) => (
 				<div key={index} className="bg-transparent whitespace-pre-line mb-3">
-					<div className="py-2 px-4 font-semibold uppercase rounded-md bg-slate-400 text-neutral-700 dark:bg-midnight-700 dark:text-neutral-400">{formatDate(date)}</div>
+					<div className="py-2 px-4 font-semibold uppercase rounded-md bg-slate-300 text-neutral-700 dark:bg-midnight-700 dark:text-neutral-400">{formatDate(date)}</div>
 					<ul	>
 						{brags[date].map((bragItem, index) => {
 							const {brag_id, brag, created_time} = bragItem;
 							return (
 								<li key={brag_id} className="flex items-stretch group hover:bg-neutral-200 dark:hover:bg-midnight-800 rounded-md px-4 py-0">
-									<div className="font-semibold text-xs text-neutral-500 dark:text-midnight-100 whitespace-nowrap uppercase mr-3 pt-1">{changeTimeFormat(created_time)}</div> 
+									<div className="font-semibold text-xs text-neutral-400 dark:text-midnight-100 whitespace-nowrap uppercase mr-3 pt-1">{changeTimeFormat(created_time)}</div> 
 									<div>{brag}</div>
 									<div className="flex flex-row ml-auto pt-1">
 										<EditBrag item={bragItem} refreshList={props.toggleRefreshList} />
-										<FaTrash className="mt-[2px] w-3 h-3 text-slate-50 group-hover:text-slate-600 dark:text-midnight-900 dark:group-hover:text-midnight-100 ml-3 cursor-pointer" title="Delete" onClick={() => deleteBrag(brag_id)} />
+										<FaTrash className="mt-[2px] w-3 h-3 md:text-slate-50 group-hover:text-slate-600 dark:text-midnight-900 dark:group-hover:text-midnight-100 ml-3 cursor-pointer" title="Delete" onClick={() => deleteBrag(brag_id)} />
 									</div>
 								</li>
 							);

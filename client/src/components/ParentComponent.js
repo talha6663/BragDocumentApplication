@@ -21,8 +21,11 @@ const ParentComponent = () => {
 	return (
 		<>
 			<Navbar handleSearchResult={handleSearchResult} />
-			<InputForm toggleRefreshList={toggleRefreshList} />
-			<ListBrags toggleRefreshList={toggleRefreshList} jsonData={jsonData} />
+
+			<div className="flex flex-col grow md:flex-row">
+				<InputForm toggleRefreshList={toggleRefreshList} />
+				<ListBrags toggleRefreshList={toggleRefreshList} jsonData={jsonData} />
+			</div>
 		</>
 	);
 };

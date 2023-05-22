@@ -43,7 +43,7 @@ const EditBrag = ({item, refreshList}) => {
 
     return (
         <>
-			<FaEdit className="mt-[2px] w-3 h-3 text-slate-50 group-hover:text-slate-600 dark:text-midnight-900 dark:group-hover:text-midnight-100 ml-3 cursor-pointer" title="Edit Brag" onClick={openModal} />
+			<FaEdit className="mt-[2px] w-3 h-3 md:text-slate-50 group-hover:text-slate-600 dark:text-midnight-900 dark:group-hover:text-midnight-100 ml-3 cursor-pointer" title="Edit Brag" onClick={openModal} />
 
             <dialog ref={modalRef} className="p-4 w-[500px] bg-slate-50 border-slate-500 dark:bg-midnight-900 dark:border-midnight-800 rounded-md border-4">
 				<Label htmlFor={"brag"} value={"Brag about what you've done!"} />
