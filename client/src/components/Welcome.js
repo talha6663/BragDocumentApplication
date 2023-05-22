@@ -1,7 +1,7 @@
 import React from "react";
+import { SiTask } from "react-icons/si";
 import { Link } from "react-router-dom";
 import { UserAuth } from "../context/AuthContext";
-// import "../styles/Welcome.css";
 import Navbar from "./Navbar";
 
 const Welcome = () => {
@@ -48,11 +48,23 @@ const Welcome = () => {
 								<cite>&mdash; ChatGPT</cite>
 							</figcaption>
 						</blockquote>
-						<div className="text-center sm:text-right py-5 sm:pt-10 sm:mb-0 sm:pr-8 border-3 border-white">
-							<Link onClick={googleSignIn} className="p-4 rounded-full border-2 border-white text-md bg-teal-500 hover:bg-white hover:border-teal-500 hover:text-teal-500 text-white text-xl font-bold">
+
+						<div className="flex flex-col items-center justify-center">
+							<div className="w-fit p-6 bg-white border-4 border-teal-400 rounded-full text-center">
+								<SiTask className="text-8xl text-teal-500" />
+							</div>
+							<div className="mt-2 text-center py-5">
+								<Link onClick={googleSignIn} className="p-4 rounded-full border-4 text-md bg-teal-500 border-teal-500 hover:bg-white hover:border-teal-400 text-white hover:text-teal-500 text-xl font-bold">
+									Start your Bragbox today!
+								</Link>
+							</div>
+						</div>
+
+						{/* <div className="text-center sm:text-right py-5 sm:pt-10 sm:mb-0 sm:pr-8 border-3 border-white">
+							<Link onClick={googleSignIn} className="p-4 rounded-full border-4 border-white text-md bg-teal-500 hover:bg-white hover:border-teal-500 hover:text-teal-500 text-white text-xl font-bold">
 								Start your Bragbox today!
 							</Link>
-						</div>
+						</div> */}
 					</div>
 				</div>
 			</div>
