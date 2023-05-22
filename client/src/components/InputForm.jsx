@@ -50,21 +50,21 @@ const InputForm = (props) => {
 		<div className="w-1/3 mt-20 ml-20 pr-5">
 			<form className="flex flex-col" onSubmit={onSubmitForm}>
 				<Label htmlFor={brag} value={"Brag about what you've done!"} />
-				<textarea id="brag" col="6" rows="10" className="mb-3 p-3 w-full bg-slate-200 dark:bg-slate-800 dark:border-slate-800 dark:text-slate-200 border-2 rounded-md border-slate-300 focus:outline-none" placeholder="I've accomplished ..." onChange={(e) => setBrag(e.target.value)} value={brag}></textarea>
+				<textarea id="brag" col="6" rows="10" className="mb-3 p-3 w-full bg-slate-200 dark:bg-midnight-800 dark:border-midnight-800 dark:text-midnight-100 border-2 rounded-md border-slate-300 focus:outline-none" placeholder="I've accomplished ..." onChange={(e) => setBrag(e.target.value)} value={brag}></textarea>
 				<Label htmlFor={tags} value={"Tags - Comma separated if multiple"} />
-				<input id="tags" className="p-3 w-full bg-slate-200 border-2 rounded-md border-slate-300 dark:bg-slate-800 dark:border-slate-800 dark:text-slate-200 focus:outline-none" placeholder="Eg: mentored, javascript, winning" onChange={(e) => setTags(e.target.value)} value={tags} />
+				<input id="tags" className="p-3 w-full bg-slate-200 border-2 rounded-md border-slate-300 dark:bg-midnight-800 dark:border-midnight-800 dark:text-midnight-200 focus:outline-none" placeholder="Eg: mentored, javascript, winning" onChange={(e) => setTags(e.target.value)} value={tags} />
 				<ButtonLarge btnType={"submit"} value={"Submit"} />
 			</form>
 
 			<section className="my-4">
-				<h3 className="text-xl font-bold text-neutral-600 dark:text-neutral-400 my-5">You won't remember everything you did and neither will your manager!</h3>
+				<h3 className="text-xl font-bold text-neutral-600 dark:text-neutral-300 my-5">You won't remember everything you did and neither will your manager!</h3>
 				<p className="my-3">This is why you should always have a bragdoc on the go.  Here are some tips and suggestions.</p>
 				<ul className="list-inside list-disc mt-1">
-					<li class="pl-4">Document your goals and accomplishments.</li>
-					<li class="pl-4">Your contributions to a project.</li>
-					<li class="pl-4">Little wins!</li>
-					<li class="pl-4">Anything you might need to remember.</li>
-					<li class="pl-4">Use comma separated tags to organize your brags.</li>
+					<li className="pl-4">Document your goals and accomplishments.</li>
+					<li className="pl-4">Your contributions to a project.</li>
+					<li className="pl-4">Little wins!</li>
+					<li className="pl-4">Anything you might need to remember.</li>
+					<li className="pl-4">Use comma separated tags to organize your brags.</li>
 				</ul>
 				<p className="my-3">You can update it daily, weekly or monthly, just be sure to stay consistant.  Your career will thank you.</p>
 			</section>

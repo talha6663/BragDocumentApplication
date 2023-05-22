@@ -49,7 +49,7 @@ const Welcome = () => {
 							</figcaption>
 						</blockquote>
 						<div className="text-right pt-10 pr-8 border-3 border-white">
-							<Link onClick={googleSignIn} className="p-4 rounded-full border-2 bg-white text-orange-600 border-orange-600 hover:bg-orange-600 hover:text-white text-xl font-bold">
+							<Link onClick={googleSignIn} className="p-4 rounded-full border-2 bg-white text-teal-500 border-teal-500 hover:bg-teal-500 hover:text-white text-xl font-bold">
 								Start your Bragbox today!
 							</Link>
 						</div>

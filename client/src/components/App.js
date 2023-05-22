@@ -26,7 +26,7 @@ function App() {
 					element={
 						<Protected>
 							<div className={theme}>
-								<div className="flex justify-items-stretch min-h-screen bg-slate-50 text-neutral-700 dark:bg-zinc-950 dark:text-neutral-400">
+								<div className="flex justify-items-stretch min-h-screen bg-slate-50 text-neutral-700 dark:bg-midnight-900 dark:text-neutral-200">
 									<ParentComponent />
 								</div>
 							</div>

@@ -14,14 +14,12 @@ const ListBrags = (props) => {
 			const response = await fetch(
 				`${process.env.REACT_APP_API_URL}/brags?userEmail=${email}`
 			);
-			// const jsonData = await response.json();
-			// console.log(props.jsonData);
+
 			if (props.jsonData) {
 				jsonData = props.jsonData;
 			} else {
 				jsonData = await response.json();
 			}
-			
 
 			let bragsObject = {};
 			jsonData.forEach(function (arrayItem) {
@@ -112,7 +110,7 @@ const ListBrags = (props) => {
 				const trimmedTag = element.trim();
 				if (!uniqueTags.has(trimmedTag)) {
 					uniqueTags.add(trimmedTag);
-					return <span key={index} className="flex items-center border-2 bg-slate-200 border-slate-300 text-slate-600 dark:bg-neutral-700 dark:border-neutral-700 dark:text-neutral-400 rounded-md text-xs py-0.5 px-4 ml-2 mb-2">{trimmedTag}</span>;
+					return <span key={index} className="flex items-center border-2 bg-slate-200 border-slate-300 text-slate-600 dark:bg-midnight-700 dark:border-midnight-700 dark:text-neutral-300 rounded-md text-xs py-0.5 px-4 ml-2 mb-2">{trimmedTag}</span>;
 				}
 			}
 			return null;
@@ -129,17 +127,17 @@ const ListBrags = (props) => {
 		<div className="w-2/3 mt-20 mr-20 pl-5">
 			{Object.keys(brags).map((date, index) => (
 				<div key={index} className="bg-transparent whitespace-pre-line mb-3">
-					<div className="py-2 px-4 font-semibold uppercase rounded-md bg-slate-400 text-neutral-700 dark:bg-slate-700 dark:text-neutral-400">{formatDate(date)}</div>
+					<div className="py-2 px-4 font-semibold uppercase rounded-md bg-slate-400 text-neutral-700 dark:bg-midnight-700 dark:text-neutral-400">{formatDate(date)}</div>
 					<ul	>
 						{brags[date].map((bragItem, index) => {
 							const {brag_id, brag, created_time} = bragItem;
 							return (
-								<li key={brag_id} className="flex items-stretch group hover:bg-neutral-200 dark:hover:bg-neutral-900 rounded-md px-4 py-0">
-									<div className="font-semibold text-xs text-neutral-500 dark:text-gray-500 whitespace-nowrap uppercase mr-3 pt-1">{changeTimeFormat(created_time)}</div> 
+								<li key={brag_id} className="flex items-stretch group hover:bg-neutral-200 dark:hover:bg-midnight-800 rounded-md px-4 py-0">
+									<div className="font-semibold text-xs text-neutral-500 dark:text-midnight-100 whitespace-nowrap uppercase mr-3 pt-1">{changeTimeFormat(created_time)}</div> 
 									<div>{brag}</div>
 									<div className="flex flex-row ml-auto pt-1">
 										<EditBrag item={bragItem} refreshList={props.toggleRefreshList} />
-										<FaTrash className="mt-[2px] w-3 h-3 text-slate-50 group-hover:text-slate-600 dark:text-zinc-950 dark:group-hover:text-slate-400 ml-3 cursor-pointer" title="Delete" onClick={() => deleteBrag(brag_id)} />
+										<FaTrash className="mt-[2px] w-3 h-3 text-slate-50 group-hover:text-slate-600 dark:text-midnight-900 dark:group-hover:text-midnight-100 ml-3 cursor-pointer" title="Delete" onClick={() => deleteBrag(brag_id)} />
 									</div>
 								</li>
 							);
