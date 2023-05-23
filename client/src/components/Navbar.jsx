@@ -96,7 +96,7 @@ const Navbar = (props) => {
                                 {theme === "dark" ? <MdDarkMode /> : <MdLightMode />}
                             </div>
 
-                            <div className="hidden md:inline mr-2 py-3 text-slate-600 dark:text-neutral-400 cursor-pointer whitespace-nowrap" onClick={openModal}>{user?.displayName}</div> 
+                            <div className="hidden lg:inline mr-2 py-3 text-slate-600 dark:text-neutral-400 cursor-pointer whitespace-nowrap" onClick={openModal}>{user?.displayName}</div> 
                             <img referrerPolicy="no-referrer" className="border-teal-500 border-2 rounded-full w-11 h-11 m-0" src={user?.photoURL} onClick={openModal} alt="pic" />
 
                             <dialog ref={modalRef} className="text-gray-600 bg-slate-50 border-neutral-500 dark:text-neutral-200 dark:bg-midnight-800 dark:border-midnight-700 rounded-md border-2 text-center absolute top-12 -left-16 md:-right-80">
