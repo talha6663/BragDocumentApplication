@@ -83,12 +83,12 @@ const Navbar = (props) => {
 
     return (
         <header className="z-50 fixed top-0 w-full">
-            <nav className="flex items-center justify-between h-16 px-3 md:px-20 md:bg-opacity-70 md:dark:bg-opacity-70 bg-slate-100 border-b-slate-200 dark:bg-midnight-900 border-b-2 dark:border-b-midnight-800">
+            <nav className="flex items-center justify-between h-16 px-3 lg:px-20 md:bg-opacity-70 md:dark:bg-opacity-70 bg-slate-100 border-b-slate-200 dark:bg-midnight-900 border-b-2 dark:border-b-midnight-800">
                 <div className="mr-3 flex flex-row items-center font-bold text-3xl tracking-tighter text-slate-600 dark:text-neutral-200"><SiTask className="text-teal-500" />BRAGBOX</div>
                 <div className="flex flex-row items-center relative">
                     {user?.displayName ? (
                         <>
-                            <div className="flex p-0 md:w-96 items-center border-2 rounded-full text-slate-600 bg-slate-200 border-slate-300 dark:border-teal-600 dark:bg-midnight-700">
+                            <div className="hidden sm:flex p-0 sm:w-96 items-center border-2 rounded-full text-slate-600 bg-slate-200 border-slate-300 dark:border-teal-600 dark:bg-midnight-700">
                                 <input type="text" className="w-full bg-transparent border-transparent px-4 py-1 placeholder:text-slate-600 text-slate-600 dark:placeholder:text-neutral-400 dark:text-neutral-200 focus:outline-none" value={searchValue} onChange={handleChange} onKeyUp={handleKeyUp} placeholder="Search" />
                                 <AiOutlineSearch onClick={search} className="w-6 h-6 text-slate-600 dark:text-neutral-400 cursor-pointer mr-3" title="Search" alt="search" />
                             </div>

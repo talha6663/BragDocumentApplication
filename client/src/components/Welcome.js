@@ -13,7 +13,7 @@ const Welcome = () => {
 				<Navbar />
 				<div className="sm:flex sm:justtify-content-center mb-3 mx-3 md:mx-4 lg:mx-28 text-neutral-700">
 					<div className="sm:w-1/2 sm:mr-12 mt-20">
-						<h1 className="mb-4 pl-3 text-center sm:text-left font-bold tracking-tighter text-3xl sm:text-4xl text-slate-600">What is a bragdoc?</h1>
+						<h1 className="mb-4 pl-3 text-center sm:text-left font-bold tracking-tighter text-3xl lg:text-4xl text-slate-600">What is a bragdoc?</h1>
 						<ul className="bg-white bg-opacity-50 drop-shadow-xl p-6 rounded-lg border-[1px] border-neutral-300">
 							<li className="py-2">
 								<strong>List of accomplishments</strong> - Start by making a comprehensive list of your accomplishments, big and small, throughout your career. These can include awards, promotions, successful projects, positive feedback from clients
@@ -54,7 +54,7 @@ const Welcome = () => {
 								<SiTask className="text-8xl text-teal-500" />
 							</div>
 							<div className="mt-2 text-center py-5">
-								<Link onClick={googleSignIn} className="p-4 rounded-full border-4 text-md bg-teal-500 border-teal-500 hover:bg-white hover:border-teal-400 text-white hover:text-teal-500 text-xl font-bold">
+								<Link onClick={googleSignIn} className="p-2 lg:p-4 rounded-full border-4 text-md bg-teal-500 border-teal-500 hover:bg-white hover:border-teal-400 text-white hover:text-teal-500 text-xl font-bold">
 									Start your Bragbox today!
 								</Link>
 							</div>

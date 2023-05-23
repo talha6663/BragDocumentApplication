@@ -99,7 +99,7 @@ const ListBrags = (props) => {
 	}, [props.toggleRefreshList, user.email, getBrags, props.jsonData]);
 
 	return (
-		<div className="md:w-2/3 mx-3 mt-5 md:mt-20 md:mr-20 md:pl-5">
+		<div className="lg:w-2/3 mx-3 mt-5 md:mt-20 lg:mr-20 lg:pl-5">
 			{Object.keys(brags).map((date, index) => (
 				<div key={index} className="bg-transparent whitespace-pre-line mb-3">
 					<div className="py-2 px-4 font-semibold uppercase text-center sm:text-left rounded-full bg-slate-300 text-neutral-700 dark:bg-midnight-700 dark:text-neutral-400">{formatDate(date)}</div>
