@@ -6,9 +6,9 @@ const getTheme = () => {
 	const theme = localStorage.getItem("theme");
 
 	if (!theme) {
-		// Default theme is taken as dark
-		localStorage.setItem("theme", "dark");
-		return "dark";
+		// Default to light theme
+		localStorage.setItem("theme", "light");
+		return "light";
 	} else {
 		return theme;
 	}
