@@ -13,7 +13,7 @@ const bragSchema = new mongoose.Schema({
     type: String
   }],
   created_date: {
-    type: Date,
+    type: String,
     required: true
   },
   created_time: {
