@@ -8,14 +8,27 @@ export const AuthContextProvider = ({ children }) => {
 	const [user, setUser] = useState({});
 
 	const googleSignIn = () => {
-		let provider = new GoogleAuthProvider();
+		let provider = new GoogleAuthProvider(); 
 
-		// Allows prompt to show to switch Google accounts
-		provider.setCustomParameters({
+		// // Allows prompt to show to switch Google accounts
+		// provider.setCustomParameters({
+		// 	prompt: "select_account",
+		// });
+
+		// signInWithPopup(auth, provider);
+		  // Allows prompt to show to switch Google accounts
+		  provider.setCustomParameters({
 			prompt: "select_account",
-		});
-
-		signInWithPopup(auth, provider);
+		  });
+		  
+          signInWithPopup(auth, provider)
+		   .then((result) => {
+                console.log("Successfully signed in with Google!");
+                console.log(result.user);
+              })
+			  .catch((error) => {
+                console.error("Error signing in with Google:", error);
+              });
 	};
 
 	const logout = () => {

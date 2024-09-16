@@ -1,12 +1,28 @@
-const Pool = require("pg").Pool;
+const mongoose = require('mongoose');
 
-const pool = new Pool({
-	user: process.env.DB_USER,
-	password: process.env.DB_PASS,
-	host: process.env.DB_HOST,
-	port: process.env.DB_PORT,
-	database: process.env.DB_NAME,
-	ssl: process.env.DB_SSL === "true",
+// console.log({
+// 	DB_USER: process.env.DB_USER,
+// 	DB_PASS: process.env.DB_PASS,
+// 	DB_HOST: process.env.DB_HOST,
+// 	DB_PORT: process.env.DB_PORT,
+// 	DB_NAME: process.env.DB_NAME,
+//   });
+
+mongoose.connect('mongodb://localhost:27017/BragDoc', {
+  useNewUrlParser: true,
+  useUnifiedTopology: true,
+  useCreateIndex: true,
+  useFindAndModify: false
 });
 
-module.exports = pool;
+const db = mongoose.connection;
+
+db.on('error', (error) => {
+  console.error(error);
+});
+
+db.once('open', () => {
+  console.log('Connected to MongoDB');
+});
+
+module.exports = mongoose;

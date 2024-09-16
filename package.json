@@ -2,7 +2,7 @@
   "name": "bragbox",
   "version": "1.0.0",
   "description": "A simple bragdoc system allowing you to help document accomplishments, goals, small wins or anything else that you might want to remember down the road.",
-  "main": "index.js",
+  "main": "client/index.js",
   "scripts": {
     "start": "node index.js",
     "build": "npm install && npm install --prefix client && npm run build --prefix client"
@@ -13,9 +13,12 @@
   "dependencies": {
     "cors": "^2.8.5",
     "express": "^4.18.2",
-    "pg": "^8.10.0"
+    "mongoose": "^8.6.2",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-scripts": "^5.0.1"
   },
   "devDependencies": {
-    "dotenv": "^16.0.3"
+    "dotenv": "^16.4.5"
   }
 }

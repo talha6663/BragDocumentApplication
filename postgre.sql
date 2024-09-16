@@ -1,9 +1,30 @@
-CREATE TABLE brags(
-   brag_id SERIAL PRIMARY KEY,
-   user_email VARCHAR NOT NULL,
-   brag TEXT,
-   tags VARCHAR(255)[],
-   created_date DATE NOT NULL,
-   created_time TIME NOT NULL,
-   created_at TIMESTAMPTZ NOT NULL DEFAULT NOW()
-);
+const mongoose = require('mongoose');
+
+const bragSchema = new mongoose.Schema({
+  user_email: {
+    type: String,
+    required: true
+  },
+  brag: {
+    type: String,
+    required: true
+  },
+  tags: [{
+    type: String
+  }],
+  created_date: {
+    type: Date,
+    required: true
+  },
+  created_time: {
+    type: String,
+    required: true
+  },
+  created_at: {
+    type: Date,
+    default: Date.now,
+    required: true
+  }
+});
+
+module.exports = mongoose.model('Brag', bragSchema);

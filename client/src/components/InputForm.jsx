@@ -25,7 +25,7 @@ const InputForm = (props) => {
 
 		try {
 			const body = { brag, tags, userEmail, currentDate, currentTime };
-			await fetch(`${process.env.REACT_APP_API_URL}/brags`, {
+			await fetch("http://localhost:5000/brags", {
 				method: 'POST',
 				headers: { 'Content-Type': 'application/json' },
 				body: JSON.stringify(body),
