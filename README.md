@@ -4,10 +4,10 @@ A simple bragdoc system allowing you to help document accomplishments, goals, sm
 
 Developed using
 - React
-- PostgreSQL database
+- Mongodb database
+- Node
 - Express server
-- Source Maps
-- Caching
+
 
 ## Development
 
