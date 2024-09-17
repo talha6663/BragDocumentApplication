@@ -1,13 +1,18 @@
-require("dotenv").config();
-
 const express = require("express");
 const app = express();
 const PORT = process.env.PORT || 5000;
 const mongoose = require("mongoose");
+const cors = require("cors");
 
 // Connect to MongoDB using Mongoose
 // mongoose.connect("mongodb://localhost:27017/BragDoc", { useNewUrlParser: true, useUnifiedTopology: true });
 mongoose.connect("mongodb://localhost:27017/BragDoc");
+
+app.use(cors({
+  origin: 'http://localhost:3000', // allow requests from this origin
+  methods: ['GET', 'POST', 'PUT', 'DELETE'], // allow these methods
+  headers: ['Content-Type', 'Authorization'] // allow these headers
+}));
 
 // Define the Mongoose model for Brags
 const bragSchema = new mongoose.Schema({
