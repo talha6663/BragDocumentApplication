@@ -7,6 +7,7 @@ Developed using
 - Mongodb database
 - Node
 - Express server
+- Firebase
 
 
 ## Development
