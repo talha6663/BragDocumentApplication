@@ -253,7 +253,7 @@ const Navbar = (props) => {
           ))}
         </div>
       ) : (
-        <div>No brags found</div>
+        <div></div>
       )}
     </header>
   );
