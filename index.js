@@ -387,13 +387,35 @@ app.get("/search", async (req, res) => {
  *       500:
  *         description: Server error
  */
+// app.put("/brags/:id", async (req, res) => {
+//   try {
+//     const { id } = req.params;
+//     const brag = req.body.brag;
+//     const tags = req.body.tags ? req.body.tags.split(",") : [];
+
+//     const updatedBrag = await Brag.findByIdAndUpdate(id, { brag: brag, tags: tags }, { new: true });
+    
+//     if (!updatedBrag) {
+//       return res.status(404).json({ error: "Brag not found" });
+//     }
+
+//     res.json("Brag was updated!");
+//   } catch (err) {
+//     console.error(err.message);
+//     res.status(500).json({ error: "Server error" });
+//   }
+// });
 app.put("/brags/:id", async (req, res) => {
   try {
     const { id } = req.params;
     const brag = req.body.brag;
-    const tags = req.body.tags ? req.body.tags.split(",") : [];
+    const tags = Array.isArray(req.body.tags) ? req.body.tags : [];
 
-    const updatedBrag = await Brag.findByIdAndUpdate(id, { brag: brag, tags: tags }, { new: true });
+    const updatedBrag = await Brag.findByIdAndUpdate(
+      id,
+      { brag: brag, tags: tags }, 
+      { new: true }
+    );
     
     if (!updatedBrag) {
       return res.status(404).json({ error: "Brag not found" });
@@ -405,6 +427,7 @@ app.put("/brags/:id", async (req, res) => {
     res.status(500).json({ error: "Server error" });
   }
 });
+
 
 /**
  * @swagger
@@ -445,3 +468,5 @@ app.delete("/brags/:id", async (req, res) => {
 app.listen(PORT, () => {
   console.log(`Server listening on port ${PORT}`);
 });
+
+

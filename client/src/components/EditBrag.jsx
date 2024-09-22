@@ -72,31 +72,40 @@ import ButtonLarge from './forms/ButtonLarge';
 import Label from './forms/Label';
 
 const EditBrag = ({ item, refreshList }) => {
+  // Initialize brag and tags state
   const [brag, setBrag] = useState(item.brag);
-  const [tags, setTags] = useState(item.tags || []);
+  const [tags, setTags] = useState(item.tags ? item.tags.join(", ") : ""); // Convert tags array to a string
   const modalRef = useRef(null);
 
+  // Function to update the brag
   const updateBrag = async (e) => {
     e.preventDefault();
     try {
-      const body = { brag, tags };
+      const body = {
+        brag,
+        tags: tags.split(",").map(tag => tag.trim()) // Convert the comma-separated string to an array
+      };
+      
       if (!item._id) {
         console.error('brag_id is undefined');
         return;
       }
+
+      // Make a PUT request to update the brag
       await fetch(`http://localhost:5000/brags/${item._id}`, {
         method: 'PUT',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(body),
       });
 
-      refreshList();
-      closeModal();
+      refreshList(); // Refresh the list after updating
+      closeModal(); // Close the modal after update
     } catch (err) {
       console.error(err.message);
     }
   };
 
+  // Function to open the modal
   const openModal = () => {
     const modal = modalRef.current;
     if (modal) {
@@ -105,6 +114,7 @@ const EditBrag = ({ item, refreshList }) => {
     }
   };
 
+  // Function to close the modal
   const closeModal = () => {
     const modal = modalRef.current;
     if (modal) {
